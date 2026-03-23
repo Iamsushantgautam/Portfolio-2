@@ -25,12 +25,29 @@ function ScrollReveal({ children, className, direction = 'up', offset = ["0 1.1"
 
 function AboutSection() {
   const imageRef = useRef(null)
-  const { scrollYProgress } = useScroll({ target: imageRef, offset: ["0 1", "0.7 1"] })
-  const imageScale = useTransform(scrollYProgress, [0, 1], [0.8, 1])
-  const imageRotate = useTransform(scrollYProgress, [0, 1], [-5, 0])
+  const containerRef = useRef(null)
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  })
+
+  // Large background text movement
+  const xLeft = useTransform(scrollYProgress, [0, 1], [-100, 100])
+
+  const { scrollYProgress: imageScroll } = useScroll({ target: imageRef, offset: ["0 1", "0.7 1"] })
+  const imageScale = useTransform(imageScroll, [0, 1], [0.8, 1])
+  const imageRotate = useTransform(imageScroll, [0, 1], [-5, 0])
+
 
   return (
-    <section className="about-section">
+    <section className="about-section" ref={containerRef}>
+      {/* Giant Background Text */}
+      <div className="about-bg-text-container">
+        <motion.span className="about-bg-text" style={{ x: xLeft }}>
+          ABOUT SUSHANT GAUTAM // FULL STACK DEVELOPER // SHOPIFY EXPERT // PROBLEM SOLVER //
+        </motion.span>
+      </div>
       <div className="about-container">
 
         {/* Left Column - Image */}

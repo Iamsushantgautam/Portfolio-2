@@ -1,12 +1,23 @@
-import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { useState, useEffect, useRef } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { FaLinkedinIn, FaGithub, FaInstagram } from 'react-icons/fa'
+import { SiFiverr } from 'react-icons/si'
 import { Copy, CheckCircle2 } from 'lucide-react'
+import sushantCV from '../assets/SushantCV.pdf'
 import '../styles/FooterSection.css'
 
 function FooterSection() {
   const [copied, setCopied] = useState(false)
   const [currentTime, setCurrentTime] = useState('')
+  const containerRef = useRef(null)
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  })
+
+  // Giant background text scroll
+  const xMove = useTransform(scrollYProgress, [0, 1], [-100, 200])
 
   const handleCopy = () => {
     navigator.clipboard.writeText('iamsushantgautam@gmail.com')
@@ -31,7 +42,14 @@ function FooterSection() {
   }, [])
 
   return (
-    <footer className="footer-section">
+    <footer className="footer-section" ref={containerRef}>
+      {/* Giant Background Text Animation */}
+      <div className="footer-bg-text-container">
+        <motion.span className="footer-bg-text" style={{ x: xMove }}>
+          SUSHANT GAUTAM // PORTFOLIO 2026 // MADE WITH LOVE // OPEN TO PROJECTS //
+        </motion.span>
+      </div>
+
       <div className="footer-container">
         
         {/* Social Banner / Brand */}
@@ -49,18 +67,23 @@ function FooterSection() {
 
           <div className="social-icons-group">
             {/* LinkedIn */}
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="social-circle circle-linkedin">
+            <a href="https://www.linkedin.com/in/iamushantgautam" target="_blank" rel="noreferrer" className="social-circle circle-linkedin">
               <FaLinkedinIn />
             </a>
             
             {/* Github */}
-            <a href="https://github.com" target="_blank" rel="noreferrer" className="social-circle circle-github">
+            <a href="https://github.com/iamsushantgautam" target="_blank" rel="noreferrer" className="social-circle circle-github">
               <FaGithub />
             </a>
             
             {/* Instagram */}
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="social-circle circle-instagram">
+            <a href="https://www.instagram.com/its_sushant01/" target="_blank" rel="noreferrer" className="social-circle circle-instagram">
               <FaInstagram />
+            </a>
+
+            {/* Fiverr */}
+            <a href="https://www.fiverr.com/sushantkumardev" target="_blank" rel="noreferrer" className="social-circle circle-fiverr">
+              <SiFiverr />
             </a>
           </div>
         </motion.div>
@@ -83,8 +106,8 @@ function FooterSection() {
           </div>
 
           <div className="contact-links">
-            <span>•</span> <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
-            <span>•</span> <a href="/cv.pdf" target="_blank" rel="noreferrer">Download CV</a>
+            <span>•</span> <a href="https://www.linkedin.com/in/iamushantgautam" target="_blank" rel="noreferrer">LinkedIn</a>
+            <span>•</span> <a href={sushantCV} download="Sushant_CV.pdf">Download CV</a>
           </div>
         </motion.div>
 

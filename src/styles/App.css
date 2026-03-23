@@ -1,10 +1,54 @@
 /* ============================================
-   APP.CSS — Responsive Shopify Dev Portfolio
-   Breakpoints:
-     Mobile  : < 480px
-     Tablet  : 480px – 768px
-     Desktop : > 768px
+   GLOBAL BACKGROUND ANIMATION (EVERYWHERE)
    ============================================ */
+.global-bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* Above base colors but behind content */
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bg-grain-texture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.05;
+  background-image: url("https://www.transparenttextures.com/patterns/pinstripe-dark.png");
+  mix-blend-mode: multiply;
+  z-index: 2;
+}
+
+/* ── Global Halftone Overlay ── */
+.bg-halftone-global {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.08;
+  background-image: radial-gradient(#000 1px, transparent 0);
+  background-size: 24px 24px;
+  z-index: 1;
+}
+
+/* ── Pop Art Stickers (Fixed Symbols) ── */
+.pop-art-sticker {
+  position: absolute;
+  opacity: 0.15; /* More 'effective' and visible */
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(4px 4px 0px rgba(0,0,0,0.1)); /* Solid shadow for Pop Art look */
+  stroke: #000;
+  stroke-width: 3px;
+}
 
 /* ============================================
    Horizontal Scroll / Projects Section

@@ -7,6 +7,9 @@
   padding: 10rem 0;
   /* Padding for start/end spacing */
   background: var(--bg-dark, #e8d94b);
+  background-image: radial-gradient(rgba(0, 0, 0, 0.1) 2px, transparent 2px);
+  background-size: 50px 50px;
+  /* Halftone Dot Pattern */
   position: relative;
   z-index: 5;
 }

@@ -10,6 +10,7 @@ import {
   SiGithub,
   SiPython,
   SiMysql,
+  SiOpenai,
 } from 'react-icons/si'
 import jsIcon from '../assets/icons/javascript.svg'
 import reactIcon from '../assets/icons/react.svg'
@@ -52,13 +53,14 @@ const SKILLS = [
       { name: 'Git', icon: <SiGit color="#F05032" /> },
       { name: 'GitHub', icon: <SiGithub color="#000000" /> },
       { name: 'Canva', icon: <SiCanva color="#00C4CC" /> },
+      { name: 'AI Image Generation', icon: <SiOpenai color="#000000" /> },
     ],
   },
 ]
 
 function SkillRow({ item }) {
   const rowRef = useRef(null)
-  
+
   // Tie the row's physical scale and horizontal entry to scroll depth
   const { scrollYProgress } = useScroll({
     target: rowRef,
@@ -80,7 +82,7 @@ function SkillRow({ item }) {
       <div className="skills-category-col">
         <h3 className="skills-category-title">{item.category}</h3>
       </div>
-      
+
       {/* Right Column Interactive Skill Pills */}
       <div className="skills-tools-col">
         {item.tools.map((tool) => (
@@ -96,18 +98,35 @@ function SkillRow({ item }) {
 
 function SkillsSection() {
   const headerRef = useRef(null)
+  const containerRef = useRef(null)
+
   const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  })
+
+  // Background Text Horizontal Movement (from right to left)
+  const xMove = useTransform(scrollYProgress, [0, 1], [100, -200])
+
+  const { scrollYProgress: headScroll } = useScroll({
     target: headerRef,
     offset: ["0 1.2", "1 1"]
   })
-  
-  const headerOpacity = useTransform(scrollYProgress, [0, 1], [0, 1])
-  const headerY = useTransform(scrollYProgress, [0, 1], [50, 0])
+
+  const headerOpacity = useTransform(headScroll, [0, 1], [0, 1])
+  const headerY = useTransform(headScroll, [0, 1], [50, 0])
 
   return (
-    <section className="skills-section">
+    <section className="skills-section" ref={containerRef}>
+      {/* Giant Background Text Animation */}
+      <div className="skills-bg-text-container">
+        <motion.span className="skills-bg-text" style={{ x: xMove }}>
+          KNOWLEDGE // EXPERIENCE // CAPABILITIES // TOOLKIT // EXPERTISE // POWERED BY AI //
+        </motion.span>
+      </div>
+
       <div className="skills-container">
-        
+
         {/* Top Eyebrow Tag explicitly tied to scroll progress */}
         <motion.div
           ref={headerRef}

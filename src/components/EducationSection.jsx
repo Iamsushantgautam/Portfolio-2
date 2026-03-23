@@ -10,18 +10,21 @@ const EDUCATION = [
     institution: 'B.N College of Engineering and Technology, Lucknow',
     period: '2022 - 2026',
     specialization: 'Bachelor of Technology in Computer Science',
+    grade: '8.2 CGPA (Pre.)'
   },
   {
     type: 'Class 12th',
     institution: 'Bal Nikunj English School, Lucknow',
     period: 'Completed 2022',
     specialization: 'Science Stream (PCM)',
+    grade: '73.4%'
   },
   {
     type: 'High School',
     institution: 'Bal Nikunj English School, Lucknow',
     period: 'Completed 2020',
     specialization: 'General Secondary Education',
+    grade: '78.6%'
   },
 ]
 
@@ -29,7 +32,7 @@ function EducationItem({ item }) {
   const itemRef = useRef(null)
   const { scrollYProgress } = useScroll({
     target: itemRef,
-    offset: ["0 1.15", "1 1"] 
+    offset: ["0 1.15", "1 1"]
   })
 
   const scale = useTransform(scrollYProgress, [0, 1], [0.85, 1])
@@ -51,7 +54,10 @@ function EducationItem({ item }) {
       <div className="ed-card-main">
         <h3 className="ed-type">{item.type}</h3>
         <div className="ed-institution">{item.institution}</div>
-        <p className="ed-details">{item.specialization}</p>
+        <div className="ed-details-row">
+          <p className="ed-details">{item.specialization}</p>
+          <div className="ed-badge">{item.grade}</div>
+        </div>
       </div>
 
       <div className="ed-card-glow" />
@@ -61,23 +67,27 @@ function EducationItem({ item }) {
 
 function EducationSection() {
   const containerRef = useRef(null)
-  
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["0 1.1", "0.6 1"]
+    offset: ["start end", "end start"]
   })
 
-  const bgTextX = useTransform(scrollYProgress, [0, 1], ["0%", "20%"])
-  
+  // Large background text movement - sync with others
+  const bgTextX = useTransform(scrollYProgress, [0, 1], [-100, 100])
+
+
   return (
     <section className="ed-section" ref={containerRef}>
-      {/* Massive subtle background text to create depth */}
-      <motion.div 
-        className="ed-section-bg-text"
-        style={{ x: bgTextX }}
-      >
-        LEARNING
-      </motion.div>
+      {/* Giant Background Text */}
+      <div className="ed-bg-text-container">
+        <motion.span
+          className="ed-bg-text"
+          style={{ x: bgTextX }}
+        >
+          EDUCATION // ACADEMICS // LEARNING // COMPUTER SCIENCE // BN CET LUCKNOW //
+        </motion.span>
+      </div>
 
       <div className="ed-container">
         {/* Header moved outside split just like Exp Section */}

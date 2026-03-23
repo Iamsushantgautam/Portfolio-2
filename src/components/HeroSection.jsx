@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
-import { SiMongodb, SiExpress, SiReact, SiNodedotjs, SiShopify } from 'react-icons/si'
+import { SiMongodb, SiExpress, SiReact, SiNodedotjs, SiShopify, SiCanva } from 'react-icons/si'
 import meNoBg from '../assets/me3.svg'
 import '../styles/HeroSection.css'
 
@@ -76,10 +76,10 @@ function HeroSection() {
       </motion.div>
 
       {/* Giant Outline Text (IN FRONT OF IMAGE - PARALLAX STROKE) */}
-      <motion.div 
-        className="hero-bg-text-container outline-layer" 
-        style={{ 
-          y: yText, 
+      <motion.div
+        className="hero-bg-text-container outline-layer"
+        style={{
+          y: yText,
           x: useTransform(scrollYProgress, [0, 1], [0, 100]),
           opacity: useTransform(scrollYProgress, [0, 0.2], [0, 1])
         }}
@@ -112,7 +112,7 @@ function HeroSection() {
         className="hero-intro-text"
         variants={fadeIn}
       >
-        <p className="intro-greeting">Hi, I'm Sushant Kumar Gautam</p>
+        <p className="intro-greeting">Hi, I'm MERN Full Stack Developer</p>
         <p className="intro-title">Computer Science and Engineering Student</p>
         {/* <p className="intro-desc">
           A third-year undergraduate engineering student at<br />B.N. College of Engineering and technology, Lucknow.
@@ -148,13 +148,17 @@ function HeroSection() {
       <motion.div className="tech-icon floating-shopify" variants={fadeIn} style={{ '--rot': '15deg' }}>
         <SiShopify color="#95BF47" />
       </motion.div>
+      <motion.div className="tech-icon floating-canva" variants={fadeIn} style={{ '--rot': '-18deg' }}>
+        <SiCanva color="#00C4CC" />
+      </motion.div>
+
 
       {/* Bottom Info Bar */}
       <motion.div className="bottom-bar" variants={fadeUp}>
         <span>SUSHANT GAUTAM</span>
-        <span>@SHOPIFYDEV</span>
-        <span>+123-456-7890</span>
-        <span>IAMSUSHANTGAUTAM@GMAIL.COM</span>
+        <span>@web developer</span>
+        <span>+91-6393958548</span>
+        <span>iamsushantgautam@gmail.com</span>
       </motion.div>
     </motion.section>
   )

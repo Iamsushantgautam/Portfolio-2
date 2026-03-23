@@ -7,10 +7,12 @@ import AboutSection from './components/AboutSection'
 import ExperienceSection from './components/ExperienceSection'
 import EducationSection from './components/EducationSection'
 import SkillsSection from './components/SkillsSection'
-import ProjectsList from './components/ProjectsList'
+import MernProjects from './components/MernProjects'
+import ShopifyProjects from './components/ShopifyProjects'
 import ContactSection from './components/ContactSection'
 import FooterSection from './components/FooterSection'
 import Navbar from './components/Navbar'
+import FloatingBg from './components/FloatingBg'
 
 function App() {
   // Global smooth scroll setup with Lenis
@@ -34,6 +36,7 @@ function App() {
 
   return (
     <div className="portfolio-wrapper">
+      <FloatingBg />
       <Navbar />
 
       <section id="hero">
@@ -56,8 +59,12 @@ function App() {
         <SkillsSection />
       </section>
 
-      <section id="projects">
-        <ProjectsList />
+      <section id="mern">
+        <MernProjects />
+      </section>
+
+      <section id="shopify">
+        <ShopifyProjects />
       </section>
 
       <section id="contact">

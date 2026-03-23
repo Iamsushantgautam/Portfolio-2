@@ -41,6 +41,7 @@
 .huge-title {
   font-size: clamp(6rem, 20vw, 28rem);
   background: linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 50%, var(--accent) 100%);
+
   background-size: 200% auto;
   animation: gradient-flow 10s linear infinite;
   -webkit-background-clip: text;
@@ -279,6 +280,12 @@
 .floating-shopify {
   top: 60%;
   left: 5%;
+}
+
+.floating-canva {
+  top: 12%;
+  left: 12%;
+  z-index: 100;
 }
 
 @media (max-width: 768px) {

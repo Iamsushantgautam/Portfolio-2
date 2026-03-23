@@ -4,6 +4,11 @@ import '../styles/ContactSection.css'
 
 function ContactSection() {
   const containerRef = useRef(null)
+  const { scrollYProgress: completeProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  })
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["0 1.2", "0.8 1"]
@@ -13,6 +18,9 @@ function ContactSection() {
   const opacity = useTransform(scrollYProgress, [0, 1], [0.1, 1])
   const yOffset = useTransform(scrollYProgress, [0, 1], [100, 0])
   const headerX = useTransform(scrollYProgress, [0, 1], [-100, 0])
+
+  // Giant background text scroll
+  const xMove = useTransform(completeProgress, [0, 1], [100, -300])
 
   const [formState, setFormState] = useState({
     name: '',
@@ -36,7 +44,11 @@ function ContactSection() {
       <div className="contact-container">
         
         {/* Massive Background Scroll Text */}
-        <div className="contact-bg-text">MESSAGE</div>
+        <div className="contact-bg-text-container">
+          <motion.span className="contact-bg-text" style={{ x: xMove }}>
+            GET IN TOUCH // SEND A MESSAGE // LET'S COLLABORATE // START A PROJECT //
+          </motion.span>
+        </div>
 
         <div className="contact-inner">
           
