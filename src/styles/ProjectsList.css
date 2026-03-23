@@ -1,0 +1,216 @@
+/* ============================================
+   ProjectsList.css
+   ============================================ */
+
+.projects-list-section {
+  width: 100%;
+  background: var(--bg-dark);
+  padding: 2rem 5% 8rem 5%;
+  position: relative;
+  z-index: 5;
+}
+
+.plist-container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+  /* Increased for premium editorial feel */
+}
+
+/* ── Individual Project Item ── */
+.plist-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6rem;
+  width: 100%;
+}
+
+.plist-item.reverse {
+  flex-direction: row-reverse;
+}
+
+/* ── Text Content ── */
+.plist-content {
+  flex: 0 0 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 600px;
+}
+
+.plist-number-wrap {
+  width: 45px;
+  height: 45px;
+  background: var(--accent-secondary);
+  /* Cyan as in 01, 02 boxes */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.plist-category {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-weight: 950;
+  color: #000;
+  line-height: 0.9;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: -0.04em;
+}
+
+.plist-subtitle {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.2rem, 2.5vw, 2.2rem);
+  font-weight: 800;
+  color: #000;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.plist-description {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.9rem, 1.2vw, 1.05rem);
+  color: #000;
+  line-height: 1.7;
+  font-weight: 500;
+}
+
+.plist-btn {
+  display: inline-block;
+  align-self: flex-start;
+  background: var(--accent);
+  /* Pink as in "Test Your Spark" */
+  color: #fff;
+  padding: 1rem 2.2rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.plist-btn:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 6px 6px 0px #000;
+  background: #000;
+}
+
+/* ── Image Side ── */
+.plist-image-wrap {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.plist-img-frame {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  aspect-ratio: 16/10;
+  z-index: 2;
+  border: none;
+  /* Clean, borderless edge-to-edge look */
+  box-shadow: none;
+  /* Removed for a seamless floating feel */
+  overflow: hidden;
+  background: transparent;
+}
+
+.plist-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  border-radius: 20px;
+  /* Smooth professional device-like corners */
+}
+
+/* Squiggle / Background Element */
+.plist-squiggle {
+  position: absolute;
+  top: -15%;
+  left: -15%;
+  right: -15%;
+  bottom: -15%;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.2;
+  /* Subtle depth */
+}
+
+.plist-squiggle path {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+}
+
+/* ── Section Header ── */
+.plist-section-header {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.plist-eyebrow {
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.plist-section-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(3.5rem, 10vw, 8rem);
+  font-weight: 1000;
+  color: #000;
+  line-height: 0.85;
+  text-transform: uppercase;
+}
+
+.plist-title-accent {
+  display: block;
+  /* Stack it below 'Latest' for a massive effect */
+  color: #fff;
+  -webkit-text-stroke: 2.5px #000;
+  text-shadow: 8px 8px 0px #000;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .plist-item {
+    flex-direction: column !important;
+    gap: 4rem;
+  }
+
+  .plist-content {
+    max-width: 100%;
+    order: 2;
+  }
+
+  .plist-image-wrap {
+    width: 100%;
+    order: 1;
+  }
+
+  .plist-container {
+    gap: 10rem;
+  }
+}

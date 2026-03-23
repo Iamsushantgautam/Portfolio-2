@@ -1,0 +1,181 @@
+/* ============================================
+   SkillsSection.css
+   ============================================ */
+
+.skills-section {
+  width: 100%;
+  min-height: 80vh;
+  background: #3BC1A8;
+  /* Deep Navy Background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 5% 2rem 5%;
+  position: relative;
+  z-index: 5;
+}
+
+.skills-container {
+  max-width: 1300px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.skills-header-label {
+  display: inline-block;
+  background: #FFEB3B;
+  /* Radiant Yellow eyebrow block */
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #000;
+  margin-bottom: 4rem;
+  font-weight: 900;
+  padding: 0.4rem 0.8rem;
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0px #000;
+  align-self: flex-start;
+}
+
+/* ── Clean Editorial Table ── */
+.skills-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.skills-row {
+  display: flex;
+  align-items: center;
+  border-bottom: 4px solid #000;
+  padding: 3.5rem 0;
+}
+
+/* Place a strong top line so it feels like a structured table */
+.skills-row:first-child {
+  border-top: 4px solid #000;
+}
+
+/* Huge Category Blocks taking consistent 35% horizontal spacing */
+.skills-category-col {
+  flex: 0 0 35%;
+  padding-right: 2rem;
+}
+
+.skills-category-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  color: #000;
+  /* Bold black for the teal background */
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+/* Right column for the Tags */
+.skills-tools-col {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+/* ── Interactive Skill Tags ── */
+.skill-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  background: #fff;
+  border: 3px solid #000;
+  border-radius: 50px;
+  /* Highly styled thick Pill shape */
+  box-shadow: 4px 4px 0px #000;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: default;
+}
+
+/* Engaging hover interactions */
+.skill-tag:hover {
+  transform: translate(-2px, -3px) rotate(-1deg);
+  box-shadow: 6px 7px 0px #000;
+  background: var(--accent-secondary);
+  /* Flash cyan on hover! */
+}
+
+.skill-name {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-weight: 800;
+  color: #000;
+  white-space: nowrap;
+}
+
+.skill-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+/* Custom SVG img tags specifically sized to match 1.5rem react icons */
+.custom-skill-icon {
+  width: 1.5em;
+  height: 1.5em;
+  /* Auto scales with the container's font or forced font-size */
+  object-fit: contain;
+}
+
+/* ── Responsive Structure ── */
+@media (max-width: 900px) {
+  .skills-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 3rem 0;
+  }
+
+  .skills-category-col {
+    flex: none;
+    padding-right: 0;
+  }
+
+  .skills-category-title {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-section {
+    padding: 6rem 5%;
+  }
+
+  .skills-header-label {
+    margin-bottom: 2.5rem;
+  }
+
+  .skills-row {
+    padding: 2.5rem 0;
+    gap: 1.5rem;
+  }
+
+  .skills-category-title {
+    font-size: 2.8rem;
+  }
+
+  .skill-tag {
+    padding: 0.6rem 1.2rem;
+    gap: 0.5rem;
+  }
+
+  .skill-name {
+    font-size: 0.95rem;
+  }
+
+  .skill-icon {
+    font-size: 1.3rem;
+  }
+}

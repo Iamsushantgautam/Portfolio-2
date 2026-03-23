@@ -1,0 +1,444 @@
+/* ============================================
+   ExperienceSection.css - Pop Art Card Layout
+   ============================================ */
+
+.exp-section {
+  width: 100%;
+  height: 180vh; /* Shorter duration for punchy, effective quick scroll */
+  background: var(--bg-dark, #0a0a0a);
+  position: relative;
+  z-index: 5;
+}
+
+.exp-sticky-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  gap: 1rem;
+  padding: 0 5%;
+  overflow: hidden;
+}
+
+.exp-header {
+  margin-bottom: 0rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.exp-eyebrow {
+  display: inline-block;
+  background: var(--accent);
+  /* Pink eyebrow block */
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  font-weight: 900;
+  padding: 0.4rem 0.8rem;
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0px #000;
+}
+
+.exp-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(3.5rem, 6vw, 5rem);
+  font-weight: 900;
+  color: var(--text-primary);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.exp-title-accent {
+  color: rgba(0, 0, 0, 0.05);
+  -webkit-text-stroke: 2px rgba(0, 0, 0, 1);
+}
+
+/* ── Two Column Split Layout ── */
+.exp-split {
+  display: flex;
+  align-items: center;
+  gap: 6rem;
+  width: 100%;
+}
+
+/* ── Image Column ── */
+.exp-image-col {
+  flex: 0 0 45%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.exp-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 650px;
+  aspect-ratio: 1;
+}
+
+.exp-image-wrapper::before {
+  content: '';
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  background: var(--accent);
+  /* Massive solid pink circle */
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  border: 4px solid #000;
+  box-shadow: 12px 12px 0px #000;
+}
+
+.exp-image {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* Drop massive sticker shadow matching the vibes */
+  filter: drop-shadow(15px 15px 0px rgba(0, 0, 0, 0.85));
+}
+
+/* ── Cards Column (Track Wrapper) ── */
+.exp-cards-col {
+  flex: 1;
+  overflow: visible;
+}
+
+/* ── Horizontal Track ── */
+.exp-grid {
+  display: flex;
+  flex-direction: row; /* Horizontal alignment for sliding */
+  gap: 4rem;
+  width: max-content;
+  will-change: transform;
+}
+
+/* Base Card Style */
+.exp-card {
+  width: 500px; /* Forced fixed width so horizontal track works cleanly */
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  /* Center button with text */
+  padding: 3.5rem 4rem;
+  border: 5px solid #000;
+  border-radius: 20px;
+  box-shadow: 10px 10px 0px #000;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  position: relative;
+}
+
+/* Playful asymmetric rotations mapped statically now */
+  .exp-card:nth-child(1) { transform: rotate(-1.5deg); }
+  .exp-card:nth-child(2) { transform: rotate(1.5deg); }
+  .exp-card:nth-child(3) { transform: rotate(-1deg); }
+  
+  /* Hover jumps up and drops deeper shadow */
+  .exp-card:hover {
+  transform: translate(-5px, -8px) rotate(0deg);
+  box-shadow: 18px 18px 0px #000;
+  z-index: 10;
+}
+
+/* ── Vibrant Color Themes ── */
+/* Pink Card */
+.exp-card.theme-pink {
+  background: var(--accent);
+  color: #fff;
+}
+
+.exp-card.theme-pink .exp-role {
+  color: #fff;
+}
+
+.exp-card.theme-pink .exp-period {
+  color: #fff;
+  background: #000;
+  padding: 0.4rem 0.8rem;
+  border-radius: 50px;
+}
+
+.exp-card.theme-pink .exp-company-wrapper {
+  background: #000;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.exp-card.theme-pink .exp-desc {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.exp-card.theme-pink .exp-more {
+  background: #000;
+  color: #fff;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5);
+  border: 2px solid #000;
+}
+
+.exp-card.theme-pink .exp-more:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* Cyan Card */
+.exp-card.theme-cyan {
+  background: var(--accent-secondary);
+  color: #000;
+}
+
+.exp-card.theme-cyan .exp-role {
+  color: #000;
+}
+
+.exp-card.theme-cyan .exp-period {
+  color: #000;
+  background: #fff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 50px;
+  border: 2px solid #000;
+}
+
+.exp-card.theme-cyan .exp-company-wrapper {
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 5px;
+}
+
+.exp-card.theme-cyan .exp-desc {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.exp-card.theme-cyan .exp-more {
+  background: #000;
+  color: #fff;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5);
+  border: 2px solid #000;
+}
+
+.exp-card.theme-cyan .exp-more:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* White Card */
+.exp-card.theme-white {
+  background: #ffffff;
+  color: #000;
+}
+
+.exp-card.theme-white .exp-role {
+  color: #000;
+}
+
+.exp-card.theme-white .exp-period {
+  color: #000;
+  background: var(--accent-secondary);
+  padding: 0.4rem 0.8rem;
+  border-radius: 50px;
+  border: 2px solid #000;
+}
+
+.exp-card.theme-white .exp-company-wrapper {
+  background: var(--accent);
+  color: #fff;
+  border: 2px solid #000;
+  border-radius: 5px;
+}
+
+.exp-card.theme-white .exp-desc {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.exp-card.theme-white .exp-more {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 4px 4px 0px #000;
+  border: 2px solid #000;
+}
+
+.exp-card.theme-white .exp-more:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* ── Typographic Styling ── */
+.exp-main {
+  flex: 1;
+  padding-right: 3rem;
+  /* Spacing before the view button */
+}
+
+.exp-top {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.exp-role {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.exp-period {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.exp-company-wrapper {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.exp-company {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.exp-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  font-weight: 600;
+  max-width: 600px;
+}
+
+.exp-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+  .exp-split {
+    flex-direction: column;
+    gap: 5rem;
+  }
+
+  .exp-image-col {
+    position: relative;
+    top: 0;
+    width: 100%;
+    max-width: 500px;
+    align-self: center;
+  }
+}
+
+@media (max-width: 1024px) {
+  .exp-card {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 3rem;
+  }
+
+  .exp-main {
+    padding-right: 0;
+    margin-bottom: 2rem;
+  }
+
+  .exp-more {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .exp-section {
+    padding: 6rem 5%;
+  }
+
+  .exp-header {
+    text-align: center;
+  }
+
+  .exp-title {
+    font-size: 3rem;
+  }
+
+  .exp-grid {
+    gap: 3rem;
+  }
+
+  .exp-card {
+    padding: 2.5rem 1.5rem;
+    border-width: 4px;
+    box-shadow: 6px 6px 0px #000;
+  }
+
+  /* Dial back rotations lightly on mobile */
+  .exp-card:nth-child(1) {
+    transform: rotate(-1deg);
+  }
+
+  .exp-card:nth-child(2) {
+    transform: rotate(1deg);
+  }
+
+  .exp-card:nth-child(3) {
+    transform: rotate(0deg);
+  }
+
+  .exp-top {
+    gap: 0.8rem;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .exp-role {
+    font-size: 1.6rem;
+  }
+
+  .exp-company {
+    font-size: 0.85rem;
+  }
+
+  .exp-period {
+    font-size: 0.75rem;
+  }
+
+  .exp-desc {
+    font-size: 0.95rem;
+  }
+}

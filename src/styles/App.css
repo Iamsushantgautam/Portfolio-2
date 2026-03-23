@@ -1,0 +1,83 @@
+/* ============================================
+   APP.CSS — Responsive Shopify Dev Portfolio
+   Breakpoints:
+     Mobile  : < 480px
+     Tablet  : 480px – 768px
+     Desktop : > 768px
+   ============================================ */
+
+/* ============================================
+   Horizontal Scroll / Projects Section
+   ============================================ */
+.horizontal-scroll-container {
+  height: 300vh;
+  position: relative;
+  background: #0a0a0a;
+}
+
+.sticky-wrapper {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.horizontal-track {
+  display: flex;
+  gap: 2rem;
+  padding: 0 5%;
+}
+
+.project-card {
+  min-width: 400px;
+  height: 500px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 64, 129, 0.2);
+}
+
+.project-tag {
+  background: rgba(255, 64, 129, 0.1);
+  color: var(--accent);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 0.75rem;
+}
+
+/* ============================================
+   RESPONSIVE – TABLET  (max 768px)
+   ============================================ */
+@media (max-width: 768px) {
+  /* Projects */
+  .project-card {
+    min-width: 85vw;
+    height: 420px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE – MOBILE  (max 480px)
+   ============================================ */
+@media (max-width: 480px) {
+  /* Horizontal Projects */
+  .project-card {
+    min-width: 88vw;
+    height: 380px;
+    padding: 1.5rem;
+  }
+}

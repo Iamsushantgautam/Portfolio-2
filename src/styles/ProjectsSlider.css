@@ -1,0 +1,303 @@
+/* ============================================
+   ProjectsSlider.css
+   ============================================ */
+
+/* ── Section: sets the scroll length ────── */
+.ps-section {
+  /* Accelerated to 250vh for clean, snappy, smooth transitions */
+  height: 250vh;
+  position: relative;
+  background: var(--bg-dark);
+}
+
+/* ── Sticky viewport container ───────────── */
+.ps-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 6%;
+  overflow: hidden;
+}
+
+/* ── Header ──────────────────────────────── */
+.ps-header {
+  margin-bottom: 0.75rem;
+  flex-shrink: 0;
+}
+
+.ps-eyebrow {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+  font-weight: 800;
+}
+
+.ps-heading {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  color: var(--text-primary);
+  line-height: 1.05;
+}
+
+.ps-heading-accent {
+  color: var(--accent);
+}
+
+/* ── Progress dots ───────────────────────── */
+.ps-dots {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 1.5rem;
+  flex-shrink: 0;
+}
+
+.ps-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 0;
+  background: #000;
+  border: 1px solid #000;
+}
+
+/* ── Sliding viewport ────────────────────── */
+.ps-viewport {
+  overflow: visible;
+  flex-shrink: 0;
+}
+
+/* ── Track: horizontal flex row ──────────── */
+.ps-track {
+  display: flex;
+  gap: 32px;
+  width: max-content;
+  will-change: transform;
+}
+
+/* ── Individual card ─────────────────────── */
+.ps-card {
+  width: 420px;       /* must match CARD_WIDTH in jsx */
+  flex-shrink: 0;
+  background: #ffffff;
+  border: 4px solid #000000;
+  border-radius: 0;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  transition: transform 0.2s ease;
+  cursor: default;
+  box-shadow: 10px 10px 0px #000;
+}
+
+.ps-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 14px 14px 0px #000;
+}
+
+/* ── Card top row ────────────────────────── */
+.ps-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #000;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.2rem;
+}
+
+.ps-number {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #000;
+}
+
+.ps-live-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: var(--accent-secondary); /* Cyan as seen in small UI elements in reference */
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid #000;
+  text-transform: uppercase;
+  transition: opacity 0.2s ease;
+}
+
+.ps-live-btn:hover {
+  opacity: 0.8;
+}
+
+/* ── Preview image ───────────────────────── */
+.ps-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 190px;
+  border-radius: 0;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 2px solid #000;
+}
+
+.ps-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.ps-img-overlay {
+  display: none;
+}
+
+/* ── Meta ────────────────────────────────── */
+.ps-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.ps-category {
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.ps-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: 900;
+  color: #000;
+  line-height: 1.1;
+}
+
+.ps-description {
+  font-size: 0.8rem;
+  color: #000;
+  line-height: 1.65;
+  font-weight: 500;
+}
+
+/* ── Tech pills ──────────────────────────── */
+.ps-tech-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.ps-tech-pill {
+  padding: 0.25rem 0.65rem;
+  border-radius: 0;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  font-size: 0.65rem;
+  color: #000;
+  font-weight: 600;
+}
+
+/* ── CTA ─────────────────────────────────── */
+.ps-cta {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: var(--accent); /* Pink as seen in reference image CTA */
+  color: #fff;
+  padding: 0.65rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-top: auto;
+  transition: 0.2s ease;
+}
+
+.ps-cta:hover {
+  background: #000;
+  transform: translateY(-2px);
+}
+
+/* ── Scroll hint ─────────────────────────── */
+.ps-hint {
+  position: absolute;
+  bottom: 2rem;
+  right: 6%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #000;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.ps-hint-arrow {
+  animation: nudge 1.6s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes nudge {
+  0%, 100% { transform: translateX(0); }
+  50%       { transform: translateX(8px); }
+}
+
+/* ── Responsive ──────────────────────────── */
+@media (max-width: 900px) {
+  .ps-card {
+    width: 360px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ps-section {
+    height: 450vh;
+  }
+
+  .ps-card {
+    width: 80vw;
+    max-width: 340px;
+  }
+
+  .ps-img-wrap {
+    height: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ps-section {
+    height: 420vh;
+  }
+
+  .ps-sticky {
+    padding: 0 5%;
+  }
+
+  .ps-card {
+    width: 86vw;
+    max-width: 320px;
+    padding: 1.2rem;
+  }
+
+  .ps-img-wrap {
+    height: 140px;
+  }
+
+  .ps-heading {
+    font-size: 2rem;
+  }
+}

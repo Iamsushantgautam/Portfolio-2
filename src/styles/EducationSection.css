@@ -1,0 +1,256 @@
+/* ============================================
+   EducationSection.css
+   ============================================ */
+
+.ed-section {
+  width: 100%;
+  min-height: 80vh;
+  background: #E91E63;
+  /* High-energy Pink */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8rem 5%;
+  position: relative;
+  overflow: hidden;
+  z-index: 5;
+}
+
+/* Removed huge distracting background text */
+.ed-section-bg-text {
+  display: none;
+}
+
+.ed-container {
+  max-width: 1400px;
+  /* Made slightly wider to fit the side-by-side layout comfortably */
+  width: 100%;
+}
+
+.ed-split {
+  display: flex;
+  gap: 5rem;
+  align-items: center;
+}
+
+.ed-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.ed-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Iconic Pop Art Circular Backdrop behind your image */
+.ed-right::before {
+  content: '';
+  position: absolute;
+  width: 75%;
+  aspect-ratio: 1;
+  background: #FFEB3B;
+  /* Vibrant Yellow circle */
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 6px solid #000;
+  box-shadow: 12px 12px 0px #000;
+  z-index: 0;
+}
+
+.ed-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+  /* Produces a sharp cutout graphic effect for SVG/PNG subjects */
+  filter: drop-shadow(15px 15px 0px rgba(0, 0, 0, 0.85));
+}
+
+.ed-header {
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 3;
+}
+
+.ed-eyebrow {
+  display: inline-block;
+  background: #FFEB3B;
+  /* Yellow eyebrow block */
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #000;
+  margin-bottom: 1rem;
+  font-weight: 900;
+  padding: 0.4rem 0.8rem;
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0px #000;
+}
+
+.ed-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 900;
+  color: #fff;
+  /* White text for better contrast on pink */
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.ed-title-accent {
+  color: var(--text-primary);
+  /* Keep it all black for a super clean header */
+  -webkit-text-stroke: 0;
+}
+
+/* ── Pop Art Timeline Layout ── */
+.ed-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  position: relative;
+  z-index: 2;
+  margin-left: 1rem;
+  padding-left: 3rem;
+  border-left: 4px solid #fff;
+  /* White timeline stem for visibility! */
+}
+
+.ed-timeline-item {
+  position: relative;
+  background: #ffffff;
+  border: 4px solid #000000;
+  border-radius: 0;
+  padding: 2rem;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 8px 8px 0px #000000;
+}
+
+/* The Timeline Indicator Dot */
+.ed-timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -3rem;
+  /* Push left past the padding to overlap the timeline border */
+  top: 2.5rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: #FFEB3B;
+  /* Yellow timeline dots! */
+  border: 3px solid #000;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+}
+
+.ed-timeline-item:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 12px 12px 0px #000000;
+}
+
+.ed-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.ed-icon-wrap {
+  width: 50px;
+  height: 50px;
+  background: var(--accent-secondary);
+  /* Cyan as in the reference icons */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ed-icon-wrap svg {
+  color: #fff !important;
+}
+
+.ed-period {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.ed-type {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #000;
+}
+
+.ed-institution {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: var(--accent);
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.ed-details {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  color: #000;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.ed-card-glow {
+  display: none;
+  /* remove for flat look */
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .ed-section {
+    padding: 6rem 5%;
+  }
+
+  .ed-split {
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  .ed-right {
+    order: -1;
+    /* Puts the image at the top on mobile so you see the picture first */
+  }
+
+  .ed-image {
+    max-width: 80%;
+  }
+
+  .ed-timeline {
+    gap: 1.5rem;
+    padding-left: 2rem;
+  }
+
+  .ed-timeline-item::before {
+    left: -2rem;
+  }
+
+  .ed-title {
+    font-size: 3rem;
+  }
+}

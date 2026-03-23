@@ -1,0 +1,225 @@
+/* ============================================
+   FooterSection.css
+   ============================================ */
+
+.footer-section {
+  width: 100%;
+  background: black;
+  display: flex;
+  flex-direction: column;
+  padding: 6rem 5% 2rem;
+  border-top: 4px solid var(--accent); /* Pink accent border on black */
+  position: relative;
+  z-index: 5;
+}
+
+.footer-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+/* ── Social Banner ── */
+.social-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.brand-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.brand-code {
+  color: #fff;
+}
+
+.brand-maverick {
+  color: var(--accent);
+}
+
+.social-icons-group {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 2.5rem);
+}
+
+.social-circle {
+  width: clamp(70px, 10vw, 110px);
+  height: clamp(70px, 10vw, 110px);
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  font-size: clamp(40px, 6vw, 65px);
+  color: #fff;
+  text-decoration: none;
+  border: 4px solid #fff;
+}
+
+.social-circle:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0px #fff;
+}
+
+/* Specific Social Brand Colors */
+.circle-linkedin {
+  background: #0077b5;
+}
+
+.circle-github {
+  background: #000;
+  color: #fff;
+}
+
+.circle-instagram {
+  background: var(--accent);
+}
+
+/* ── Contact Area ── */
+.contact-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+}
+
+.contact-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.contact-email-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 3.5rem);
+  font-weight: 900;
+  color: #fff;
+}
+
+.copy-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: color 0.3s ease;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.copy-btn:hover {
+  color: var(--accent);
+}
+
+.contact-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 1rem;
+}
+
+.contact-links span {
+  color: var(--accent);
+}
+
+.contact-links a {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-links a:hover {
+  color: #fff;
+}
+
+/* ── Bottom Grid (Footer info) ── */
+.footer-bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: end;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: #fff;
+  letter-spacing: -0.01em;
+  padding-top: 2rem;
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.f-col-center {
+  text-align: center;
+}
+
+.f-col-right {
+  text-align: right;
+}
+
+.f-label {
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+}
+
+.f-value {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .social-banner {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-bottom-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .f-col-center,
+  .f-col-right {
+    text-align: center;
+  }
+
+  .footer-container {
+    gap: 4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-email-wrapper {
+    flex-direction: column-reverse;
+  }
+}
