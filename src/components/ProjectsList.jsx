@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
+import { ArrowUpRight, Github, Globe } from 'lucide-react'
 import '../styles/ProjectsList.css'
 
 import storeAura from '../assets/store_aura.png'
@@ -7,53 +8,76 @@ import storeUrban from '../assets/store_urban.png'
 import storeGreens from '../assets/store_greens.png'
 import storeLuxe from '../assets/store_luxe.png'
 
-import mern1 from '../assets/MERN Project/portfolio1.png'
+import mern1 from '../assets/MERN Project/portfolio1.1.png'
 import mern2 from '../assets/MERN Project/portfolio2.png'
-import mern3 from '../assets/MERN Project/portfolio1.1.png'
+import expenseTrackerImg from '../assets/MERN Project/portfolio3.jpeg'
 
 const SHOPIFY_PROJECTS = [
   {
-    number: '01',
+    number: '04',
     category: 'Creativity',
     subtitle: 'Aura Beauty: Headless Store',
     description: 'A headless storefront built with Next.js and the Shopify Storefront API. Blazing-fast UI with seamless cart navigation and high-conversion editorial design.',
     img: storeAura,
-    btnText: 'Experience Aura',
+    live: '#',
+    github: '#',
+    tech: 'Next.js, GraphQL, Liquid, Tailwind',
   },
   {
-    number: '02',
+    number: '05',
     category: 'Content',
     subtitle: 'Urban Kicks: Shopify 2.0',
     description: 'High-energy Shopify 2.0 theme built for a global streetwear brand. Optimized for viral content and dynamic product landing pages.',
     img: storeUrban,
-    btnText: 'View Storefront',
+    live: '#',
+    github: '#',
+    tech: 'Shopify 2.0, Liquid, JavaScript, SCSS',
   },
   {
-    number: '03',
+    number: '06',
     category: 'Growth',
     subtitle: 'The Green Basket: Plus UX',
     description: 'Eco-first grocery platform on Shopify Plus with complex subscription features and multi-currency checkout systems.',
     img: storeGreens,
-    btnText: 'See Strategy',
+    live: '#',
+    github: '#',
+    tech: 'Shopify Plus, Recharge, Liquid, JS',
   },
 ]
 
 const MERN_PROJECTS = [
   {
-    number: '04',
-    category: 'Frontend',
-    subtitle: 'TaskFlow: Redux + Node',
-    description: 'A productivity-focused dynamic web application for managing team workflows with real-time state synchronization.',
-    img: mern2,
-    btnText: 'Test the App',
+    number: '01',
+    category: 'Financial Tracking',
+    subtitle: 'Expense Tracker: Web App',
+    period: 'July 2025',
+    description: 'Developed a professional web-based expense tracker with secure authentication, budget tracking, visual analytics, and CSV export functionality. Built interactive charts using Chart.js to visualize spending patterns and monthly reports, with backend logic in PHP and SQL for robust data management.',
+    img: expenseTrackerImg,
+    live: '#',
+    github: '#',
+    tech: 'HTML, CSS, JavaScript, PHP, SQL, Chart.js',
   },
   {
-    number: '05',
-    category: 'Analytical',
-    subtitle: 'Admin Analytics Portal',
-    description: 'An advanced administrative portal with secure JWT authentication and real-time data visualization for MERN ecosystems.',
-    img: mern3,
-    btnText: 'Demo Analytics',
+    number: '02',
+    category: 'Digital Utility',
+    subtitle: 'Image PDF Converter: Suite',
+    period: 'December 2024',
+    description: 'Designed and developed a comprehensive image-to-PDF conversion tool supporting compression, resizing, merging, watermarking, and password protection. Optimized with client-side processing for fast, secure file handling and integrated QR code generation for verification.',
+    img: mern2,
+    live: 'https://ip-converter.onrender.com/',
+    github: '#',
+    tech: 'HTML, CSS, JavaScript',
+  },
+  {
+    number: '03',
+    category: 'Educational Platform',
+    subtitle: 'WITCET: Learn & Grow',
+    period: 'April 2024',
+    description: 'An online education platform offering vast study materials, practice tests, and secure content management. Built with RESTful APIs using Node.js and Express.js for scalable user authentication and implemented MongoDB for efficient, large-scale data storage.',
+    img: mern1,
+    live: 'https://witcet.online',
+    github: '#',
+    tech: 'Node.js, Express.js, MongoDB, Bootstrap, CSS',
   },
 ]
 
@@ -74,23 +98,17 @@ const letterVariants = {
   visible: { opacity: 1, display: 'inline-block' },
 }
 
-// Reusable Typewriter effect component that triggers on scroll
+// Simplified text animation to ensure full description is visible
 function TypewriterText({ text }) {
-  // Support for spaces natively when split by letter
   return (
     <motion.p
       className="plist-description"
-      variants={sentenceVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.5 }}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
     >
-      {text.split("").map((char, index) => (
-        // Using `&nbsp;` to accurately render space characters in staggered spans
-        <motion.span key={index} variants={letterVariants}>
-          {char === " " ? "\u00A0" : char}
-        </motion.span>
-      ))}
+      {text}
     </motion.p>
   )
 }
@@ -126,12 +144,23 @@ function ProjectItem({ project, index }) {
           <span>{project.number}</span>
         </div>
         <h2 className="plist-category">{project.category}</h2>
-        <h3 className="plist-subtitle">{project.subtitle}</h3>
+        <div className="plist-subtitle-row">
+          <h3 className="plist-subtitle">{project.subtitle}</h3>
+          {/* <span className="plist-period">{project.period}</span> */}
+        </div>
         {/* Trigger the scroll writing animation! */}
         <TypewriterText text={project.description} />
-        <a href="#view" className="plist-btn">
-          {project.btnText}
-        </a>
+        <div className="plist-tech">
+          <strong>Tools used:</strong> {project.tech}
+        </div>
+        <div className="plist-btn-group">
+          <a href={project.live} target="_blank" rel="noreferrer" className="plist-btn live">
+            <Globe size={18} /> Live Link
+          </a>
+          <a href={project.github} target="_blank" rel="noreferrer" className="plist-btn github">
+            <Github size={18} /> Github Code
+          </a>
+        </div>
       </motion.div>
 
       <div className="plist-image-wrap">

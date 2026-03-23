@@ -27,33 +27,32 @@ const EDUCATION = [
 
 function EducationItem({ item }) {
   const itemRef = useRef(null)
-  // Physically map animation to the scroll progress of each individual timeline node
   const { scrollYProgress } = useScroll({
     target: itemRef,
     offset: ["0 1.15", "1 1"] 
   })
 
-  // Smooth pop art slide and squeeze
   const scale = useTransform(scrollYProgress, [0, 1], [0.85, 1])
   const opacity = useTransform(scrollYProgress, [0, 1], [0.2, 1])
-  const translateX = useTransform(scrollYProgress, [0, 1], [-60, 0])
 
   return (
     <motion.div
       ref={itemRef}
       className="ed-timeline-item"
-      style={{ scale, opacity, x: translateX }}
+      style={{ scale, opacity }}
     >
-      <div className="ed-card-header">
+      <div className="ed-card-side">
         <div className="ed-icon-wrap">
-          <GraduationCap size={24} color="var(--accent)" />
+          <GraduationCap size={28} />
         </div>
         <span className="ed-period">{item.period}</span>
       </div>
 
-      <h3 className="ed-type">{item.type}</h3>
-      <div className="ed-institution">{item.institution}</div>
-      <p className="ed-details">{item.specialization}</p>
+      <div className="ed-card-main">
+        <h3 className="ed-type">{item.type}</h3>
+        <div className="ed-institution">{item.institution}</div>
+        <p className="ed-details">{item.specialization}</p>
+      </div>
 
       <div className="ed-card-glow" />
     </motion.div>
@@ -63,36 +62,33 @@ function EducationItem({ item }) {
 function EducationSection() {
   const containerRef = useRef(null)
   
-  // Tie the entire left image avatar's entry into the scrollbar of the whole section
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["0 1.1", "0.6 1"]
   })
 
-  const headerOpacity = useTransform(scrollYProgress, [0, 1], [0, 1])
-  const headerX = useTransform(scrollYProgress, [0, 1], [-80, 0])
-
-  const imageScale = useTransform(scrollYProgress, [0, 1], [0.8, 1])
-  const imageX = useTransform(scrollYProgress, [0, 1], [100, 0])
+  const bgTextX = useTransform(scrollYProgress, [0, 1], ["0%", "20%"])
   
   return (
     <section className="ed-section" ref={containerRef}>
       {/* Massive subtle background text to create depth */}
-      <div className="ed-section-bg-text">LEARN</div>
+      <motion.div 
+        className="ed-section-bg-text"
+        style={{ x: bgTextX }}
+      >
+        LEARNING
+      </motion.div>
 
       <div className="ed-container">
+        {/* Header moved outside split just like Exp Section */}
+        <div className="ed-header">
+          <span className="ed-eyebrow">Intellectual Roots</span>
+          <h2 className="ed-title">My <span className="ed-title-accent">Education</span></h2>
+        </div>
+
         <div className="ed-split">
-
-          {/* LEFT SIDE: Education Content */}
-          <div className="ed-left">
-            <motion.div
-              className="ed-header"
-              style={{ opacity: headerOpacity, x: headerX }}
-            >
-              <span className="ed-eyebrow">Intellectual Roots</span>
-              <h2 className="ed-title">My <span className="ed-title-accent">Education</span></h2>
-            </motion.div>
-
+          {/* LEFT SIDE: Timeline Cards */}
+          <div className="ed-cards-col">
             <div className="ed-timeline">
               {EDUCATION.map((item, index) => (
                 <EducationItem key={index} item={item} />
@@ -100,14 +96,18 @@ function EducationSection() {
             </div>
           </div>
 
-          {/* RIGHT SIDE: Profile Image mapped directly to Scroll */}
-          <motion.div
-            className="ed-right"
-            style={{ scale: imageScale, x: imageX }}
-          >
-            <img src={me4} alt="Sushant Gautam" className="ed-image" />
-          </motion.div>
-
+          {/* RIGHT SIDE: Image (Sticky) */}
+          <div className="ed-image-col">
+            <motion.div
+              className="ed-image-wrapper"
+              viewport={{ once: true }}
+              initial={{ scale: 0.8, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.8 }}
+            >
+              <img src={me4} alt="Sushant Gautam" className="ed-image" />
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>

@@ -30,13 +30,16 @@ const fadeIn = {
   },
 }
 
-const HeartIcon = ({ className }) => (
-  <svg className={className} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path
+const HeartIcon = ({ className, style }) => (
+  <svg className={className} style={style} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <motion.path
       d="M16 28s-14-8.5-14-17A8 8 0 0116 6.7 8 8 0 0130 11c0 8.5-14 17-14 17z"
       stroke="var(--accent)"
-      strokeWidth="1.5"
+      strokeWidth="2.5"
       strokeLinejoin="round"
+      initial={{ pathLength: 0 }}
+      animate={{ pathLength: 1 }}
+      transition={{ duration: 1.5, ease: "easeInOut" }}
     />
   </svg>
 )
@@ -51,6 +54,10 @@ function HeroSection() {
   const yText = useTransform(scrollYProgress, [0, 1], [0, 250])
   const yImg = useTransform(scrollYProgress, [0, 1], [0, -100])
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
+  const pathLength = useScroll({
+    target: targetRef,
+    offset: ["start 0.8", "end 0.2"]
+  }).scrollYProgress
 
   return (
     <motion.section
@@ -63,10 +70,21 @@ function HeroSection() {
     >
       {/* Giant Background Text (SOLID - BEHIND IMAGE) */}
       <motion.div className="hero-bg-text-container" style={{ y: yText }}>
-        {/* <motion.span variants={fadeUp} className="designer-label">
-          MERN STACK & SHOPIFY DEVELOPER
-        </motion.span> */}
         <motion.h1 variants={fadeUp} className="huge-title">
+          SUSHANT
+        </motion.h1>
+      </motion.div>
+
+      {/* Giant Outline Text (IN FRONT OF IMAGE - PARALLAX STROKE) */}
+      <motion.div 
+        className="hero-bg-text-container outline-layer" 
+        style={{ 
+          y: yText, 
+          x: useTransform(scrollYProgress, [0, 1], [0, 100]),
+          opacity: useTransform(scrollYProgress, [0, 0.2], [0, 1])
+        }}
+      >
+        <motion.h1 variants={fadeUp} className="huge-title outline-only">
           SUSHANT
         </motion.h1>
       </motion.div>
@@ -94,7 +112,7 @@ function HeroSection() {
         className="hero-intro-text"
         variants={fadeIn}
       >
-        <p className="intro-greeting">Hi, I'm Sushant<br /> Kumar Gautam</p>
+        <p className="intro-greeting">Hi, I'm Sushant Kumar Gautam</p>
         <p className="intro-title">Computer Science and Engineering Student</p>
         {/* <p className="intro-desc">
           A third-year undergraduate engineering student at<br />B.N. College of Engineering and technology, Lucknow.

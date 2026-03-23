@@ -16,9 +16,21 @@
   z-index: 5;
 }
 
-/* Removed huge distracting background text */
 .ed-section-bg-text {
-  display: none;
+  position: absolute;
+  top: 15%;
+  left: -10%;
+  font-family: 'Outfit', sans-serif;
+  font-size: 25vw;
+  font-weight: 950;
+  color: transparent;
+  -webkit-text-stroke: 4px rgba(255, 255, 255, 0.15);
+  line-height: 1;
+  pointer-events: none;
+  z-index: 1;
+  white-space: nowrap;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
 }
 
 .ed-container {
@@ -29,200 +41,234 @@
 
 .ed-split {
   display: flex;
-  gap: 5rem;
-  align-items: center;
+  gap: 6rem;
+  align-items: flex-start; /* Alignment for sticky col */
 }
 
-.ed-left {
-  flex: 1;
+.ed-header {
+  margin-bottom: 5rem;
+  position: relative;
+  z-index: 3;
+}
+
+.ed-split {
   display: flex;
-  flex-direction: column;
-  gap: 3rem;
+  gap: 5rem;
+  align-items: flex-start;
 }
 
-.ed-right {
-  flex: 1;
+.ed-image-col {
+  flex: 0 0 45%;
+  position: sticky;
+  top: 8rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
   z-index: 2;
+  height: fit-content;
 }
 
-/* Iconic Pop Art Circular Backdrop behind your image */
-.ed-right::before {
-  content: '';
-  position: absolute;
-  width: 75%;
-  aspect-ratio: 1;
-  background: #FFEB3B;
-  /* Vibrant Yellow circle */
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 6px solid #000;
-  box-shadow: 12px 12px 0px #000;
-  z-index: 0;
+.ed-cards-col {
+  flex: 1;
+  padding-bottom: 5rem;
+}
+
+.ed-image-wrapper {
+  width: 100%;
+  max-width: 450px;
+  position: relative;
 }
 
 .ed-image {
   width: 100%;
-  max-width: 500px;
   height: auto;
   object-fit: contain;
-  position: relative;
-  z-index: 1;
-  /* Produces a sharp cutout graphic effect for SVG/PNG subjects */
   filter: drop-shadow(15px 15px 0px rgba(0, 0, 0, 0.85));
+  z-index: 1;
+  position: relative;
 }
 
-.ed-header {
-  margin-bottom: 2rem;
-  position: relative;
-  z-index: 3;
+/* Yellow circle backdrop for sticky image */
+.ed-image-wrapper::before {
+  content: '';
+  position: absolute;
+  width: 90%;
+  aspect-ratio: 1;
+  background: #FFEB3B;
+  border: 6px solid #000;
+  box-shadow: 10px 10px 0px #000;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
 }
 
 .ed-eyebrow {
   display: inline-block;
   background: #FFEB3B;
-  /* Yellow eyebrow block */
   font-family: 'Outfit', sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: #000;
-  margin-bottom: 1rem;
-  font-weight: 900;
-  padding: 0.4rem 0.8rem;
-  border: 3px solid #000;
-  box-shadow: 4px 4px 0px #000;
+  margin-bottom: 1.2rem;
+  font-weight: 950;
+  padding: 0.5rem 1rem;
+  border: 4px solid #000;
+  box-shadow: 6px 6px 0px #000;
 }
 
 .ed-title {
   font-family: 'Outfit', sans-serif;
-  font-size: clamp(3rem, 5vw, 4.5rem);
-  font-weight: 900;
+  font-size: clamp(3.5rem, 6vw, 5.5rem);
+  font-weight: 950;
   color: #fff;
-  /* White text for better contrast on pink */
-  line-height: 1.1;
+  line-height: 1;
   letter-spacing: -0.02em;
+  text-transform: uppercase;
 }
 
 .ed-title-accent {
-  color: var(--text-primary);
-  /* Keep it all black for a super clean header */
-  -webkit-text-stroke: 0;
+  color: transparent;
+  -webkit-text-stroke: 3px #fff;
 }
 
 /* ── Pop Art Timeline Layout ── */
 .ed-timeline {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 3.5rem;
   position: relative;
   z-index: 2;
-  margin-left: 1rem;
-  padding-left: 3rem;
-  border-left: 4px solid #fff;
-  /* White timeline stem for visibility! */
+  padding-left: 1.5rem;
 }
 
 .ed-timeline-item {
   position: relative;
   background: #ffffff;
-  border: 4px solid #000000;
-  border-radius: 0;
-  padding: 2rem;
-  transition: all 0.2s ease;
+  border: 5px solid #000000;
+  border-radius: 24px;
+  padding: 2.5rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  box-shadow: 8px 8px 0px #000000;
+  flex-direction: row;
+  align-items: center;
+  gap: 2.5rem;
+  box-shadow: 15px 15px 0px #000000;
 }
 
-/* The Timeline Indicator Dot */
+/* The Timeline Indicator Dot (Optional, removed to match Exp Section cleaner scroll) */
 .ed-timeline-item::before {
-  content: '';
-  position: absolute;
-  left: -3rem;
-  /* Push left past the padding to overlap the timeline border */
-  top: 2.5rem;
-  width: 1.25rem;
-  height: 1.25rem;
-  background: #FFEB3B;
-  /* Yellow timeline dots! */
-  border: 3px solid #000;
-  border-radius: 50%;
-  transform: translateX(-50%);
-  z-index: 5;
+  display: none;
 }
 
 .ed-timeline-item:hover {
-  transform: translate(-4px, -4px);
-  box-shadow: 12px 12px 0px #000000;
+  transform: translate(-10px, -10px);
+  box-shadow: 25px 25px 0px #000000;
 }
 
-.ed-card-header {
+.ed-card-side {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  margin-bottom: 0.5rem;
+  gap: 1rem;
+  flex-shrink: 0;
+  width: 100px;
 }
 
 .ed-icon-wrap {
-  width: 50px;
-  height: 50px;
+  width: 65px;
+  height: 65px;
   background: var(--accent-secondary);
-  /* Cyan as in the reference icons */
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 4px solid #000;
+  box-shadow: 4px 4px 0px #000;
 }
 
 .ed-icon-wrap svg {
-  color: #fff !important;
+  color: #fff;
 }
 
 .ed-period {
   font-family: 'Outfit', sans-serif;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 800;
   color: #000;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.ed-card-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 
 .ed-type {
   font-family: 'Outfit', sans-serif;
-  font-size: 1.8rem;
-  font-weight: 900;
+  font-size: 2.2rem;
+  font-weight: 950;
   color: #000;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .ed-institution {
   font-family: 'Inter', sans-serif;
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: var(--accent);
-  font-weight: 800;
-  line-height: 1.4;
+  font-weight: 900;
+  line-height: 1.3;
 }
 
 .ed-details {
   font-family: 'Inter', sans-serif;
-  font-size: 0.88rem;
-  color: #000;
-  font-weight: 500;
+  font-size: 1rem;
+  color: #222;
+  font-weight: 600;
   line-height: 1.6;
 }
 
 .ed-card-glow {
   display: none;
-  /* remove for flat look */
 }
 
 /* ── Responsive ── */
+@media (max-width: 1024px) {
+  .ed-section-bg-text { font-size: 35vw; top: 10%; }
+  .ed-split { gap: 3rem; }
+  .ed-right { flex: 0 0 40%; top: 2rem; }
+}
+
 @media (max-width: 768px) {
+  .ed-timeline-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+
+  .ed-card-side {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .ed-icon-wrap {
+    width: 50px;
+    height: 50px;
+  }
+
+  .ed-type {
+    font-size: 1.6rem;
+  }
+
   .ed-section {
     padding: 6rem 5%;
   }
@@ -234,7 +280,11 @@
 
   .ed-right {
     order: -1;
-    /* Puts the image at the top on mobile so you see the picture first */
+    position: relative;
+    top: 0;
+    width: 100%;
+    padding-top: 0;
+    align-self: center;
   }
 
   .ed-image {
@@ -242,12 +292,12 @@
   }
 
   .ed-timeline {
-    gap: 1.5rem;
-    padding-left: 2rem;
+    gap: 2rem;
+    padding-left: 1.5rem;
   }
 
   .ed-timeline-item::before {
-    left: -2rem;
+    left: -1.5rem;
   }
 
   .ed-title {

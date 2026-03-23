@@ -16,8 +16,7 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 8rem;
-  /* Increased for premium editorial feel */
+  gap: 15rem; /* Increased to 15rem for much more breathing room */
 }
 
 /* ── Individual Project Item ── */
@@ -35,11 +34,11 @@
 
 /* ── Text Content ── */
 .plist-content {
-  flex: 0 0 45%;
+  flex: 0 0 50%; /* Adjusted from 45% for more space */
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  max-width: 600px;
+  max-width: 800px; /* Increased from 600px for full descriptions */
 }
 
 .plist-number-wrap {
@@ -67,6 +66,14 @@
   letter-spacing: -0.04em;
 }
 
+.plist-subtitle-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  width: 100%;
+}
+
 .plist-subtitle {
   font-family: 'Outfit', sans-serif;
   font-size: clamp(1.2rem, 2.5vw, 2.2rem);
@@ -74,6 +81,17 @@
   color: #000;
   margin: 0;
   line-height: 1.1;
+  flex: 1;
+}
+
+.plist-period {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: rgba(0, 0, 0, 0.05);
+  padding: 0.3rem 0.8rem;
+  white-space: nowrap;
 }
 
 .plist-description {
@@ -84,28 +102,61 @@
   font-weight: 500;
 }
 
+.plist-tech {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: #000;
+  opacity: 0.9;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 0.6rem 1rem;
+  border-left: 4px solid var(--accent);
+  margin-top: 0.5rem;
+}
+
+.plist-tech strong {
+  margin-right: 0.5rem;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+.plist-btn-group {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
 .plist-btn {
-  display: inline-block;
-  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
   background: var(--accent);
-  /* Pink as in "Test Your Spark" */
   color: #fff;
-  padding: 1rem 2.2rem;
+  padding: 1rem 1.8rem;
   font-family: 'Outfit', sans-serif;
   font-weight: 800;
-  font-size: 1rem;
+  font-size: 0.95rem;
   text-transform: uppercase;
   text-decoration: none;
-  transition: transform 0.2s ease, background 0.2s ease;
-  border: none;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border: 2.5px solid #000;
   cursor: pointer;
-  margin-top: 1rem;
+}
+
+.plist-btn.github {
+  background: #000;
+  color: #fff;
 }
 
 .plist-btn:hover {
-  transform: translate(-3px, -3px);
-  box-shadow: 6px 6px 0px #000;
-  background: #000;
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0px #000;
+}
+
+.plist-btn.github:hover {
+  background: #fff;
+  color: #000;
 }
 
 /* ── Image Side ── */
@@ -211,6 +262,6 @@
   }
 
   .plist-container {
-    gap: 10rem;
+    gap: 12rem;
   }
 }
