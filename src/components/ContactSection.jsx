@@ -28,15 +28,46 @@ function ContactSection() {
     message: ''
   })
 
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+
   const handleChange = (e) => {
     setFormState({ ...formState, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Trigger success state or just clear the form for now
-    alert('Message Sent Successfully! Sushant will get back to you soon.')
-    setFormState({ name: '', email: '', message: '' })
+    setIsSubmitting(true)
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/iamsushantgautam@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formState.name,
+          email: formState.email,
+          message: formState.message,
+          _subject: `New Portfolio Message from ${formState.name}`,
+          _captcha: 'false',
+          _next: window.location.href // Fallback to current URL
+        })
+
+      })
+
+      if (response.ok) {
+        setSubmitted(true)
+        setFormState({ name: '', email: '', message: '' })
+      } else {
+        alert('Something went wrong. Please try again.')
+      }
+    } catch (error) {
+      alert('Failed to send message. Please check your connection.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -63,40 +94,57 @@ function ContactSection() {
             </motion.div>
 
             <form className="contact-form" onSubmit={handleSubmit}>
-              <div className="form-group">
-                <input 
-                  type="text" 
-                  name="name" 
-                  placeholder="Your Name" 
-                  required 
-                  value={formState.name}
-                  onChange={handleChange}
-                />
-              </div>
-              <div className="form-group">
-                <input 
-                  type="email" 
-                  name="email" 
-                  placeholder="Your Email" 
-                  required 
-                  value={formState.email}
-                  onChange={handleChange}
-                />
-              </div>
-              <div className="form-group">
-                <textarea 
-                  name="message" 
-                  placeholder="Drop a Message..." 
-                  rows="5" 
-                  required
-                  value={formState.message}
-                  onChange={handleChange}
-                ></textarea>
-              </div>
-              <button type="submit" className="contact-submit-btn">
-                Send Message
-              </button>
+              {submitted ? (
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="contact-success-msg"
+                >
+                  <h3>🚀 Message Sent!</h3>
+                  <p>Thanks for reaching out! I'll get back to you shortly.</p>
+                  <button type="button" onClick={() => setSubmitted(false)} className="contact-reset-btn">
+                    Send another message
+                  </button>
+                </motion.div>
+              ) : (
+                <>
+                  <div className="form-group">
+                    <input 
+                      type="text" 
+                      name="name" 
+                      placeholder="Your Name" 
+                      required 
+                      value={formState.name}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <input 
+                      type="email" 
+                      name="email" 
+                      placeholder="Your Email" 
+                      required 
+                      value={formState.email}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <textarea 
+                      name="message" 
+                      placeholder="Drop a Message..." 
+                      rows="5" 
+                      required
+                      value={formState.message}
+                      onChange={handleChange}
+                    ></textarea>
+                  </div>
+                  <button type="submit" className="contact-submit-btn" disabled={isSubmitting}>
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                  </button>
+                </>
+              )}
             </form>
+
           </motion.div>
 
           {/* Right Column: Details & Visual */}

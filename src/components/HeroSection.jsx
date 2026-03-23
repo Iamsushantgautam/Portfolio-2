@@ -112,7 +112,7 @@ function HeroSection() {
         className="hero-intro-text"
         variants={fadeIn}
       >
-        <p className="intro-greeting">Hi, I'm MERN Full Stack Developer</p>
+        <p className="intro-greeting">Hi, I'm MERN Full Stack and Shopify Developer</p>
         <p className="intro-title">Computer Science and Engineering Student</p>
         {/* <p className="intro-desc">
           A third-year undergraduate engineering student at<br />B.N. College of Engineering and technology, Lucknow.

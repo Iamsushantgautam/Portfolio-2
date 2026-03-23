@@ -4,8 +4,8 @@ import { ArrowUpRight, Github, Globe } from 'lucide-react'
 import '../styles/ProjectsList.css'
 
 import mern1 from '../assets/MERN Project/portfolio1.1.png'
-import mern2 from '../assets/MERN Project/portfolio2.png'
-import expenseTrackerImg from '../assets/MERN Project/portfolio3.jpeg'
+import mern2 from '../assets/MERN Project/portfolio2-full.png'
+import expenseTrackerImg from '../assets/MERN Project/portfolio3-full.png'
 
 const MERN_PROJECTS = [
   {
@@ -15,8 +15,8 @@ const MERN_PROJECTS = [
     period: 'July 2025',
     description: 'Developed a professional web-based expense tracker with secure authentication, budget tracking, visual analytics, and CSV export functionality. Built interactive charts using Chart.js to visualize spending patterns and monthly reports, with backend logic in PHP and SQL for robust data management.',
     img: expenseTrackerImg,
-    live: '#',
-    github: '#',
+    live: 'https://expensive-tracker.page.gd',
+    github: 'https://github.com/Iamsushantgautam/Expense-Tracker-Web-Application',
     tech: 'HTML, CSS, JavaScript, PHP, SQL, Chart.js',
   },
   {
@@ -26,8 +26,8 @@ const MERN_PROJECTS = [
     period: 'December 2024',
     description: 'Designed and developed a comprehensive image-to-PDF conversion tool supporting compression, resizing, merging, watermarking, and password protection. Optimized with client-side processing for fast, secure file handling and integrated QR code generation for verification.',
     img: mern2,
-    live: 'https://ip-converter.onrender.com/',
-    github: '#',
+    live: 'https://imagepdf-converter.netlify.app/',
+    github: 'https://github.com/Iamsushantgautam/ImagePDF-Converter',
     tech: 'HTML, CSS, JavaScript',
   },
   {
@@ -38,7 +38,7 @@ const MERN_PROJECTS = [
     description: 'An online education platform offering vast study materials, practice tests, and secure content management. Built with RESTful APIs using Node.js and Express.js for scalable user authentication and implemented MongoDB for efficient, large-scale data storage.',
     img: mern1,
     live: 'https://witcet.online',
-    github: '#',
+    github: 'https://github.com/Iamsushantgautam/witcet-version-3.0',
     tech: 'Node.js, Express.js, MongoDB, Bootstrap, CSS',
   },
 ]
@@ -57,7 +57,7 @@ function ProjectItem({ project, index }) {
   const imageScale = 1
   const imageRotate = 0
 
-  
+
   // Background number parallax
   const bgNumberY = useTransform(scrollYProgress, [0, 1], [100, -100])
 
@@ -68,7 +68,7 @@ function ProjectItem({ project, index }) {
       style={{ opacity }}
     >
       {/* Individual Project Background Decoration */}
-      <motion.div 
+      <motion.div
         className="plist-item-bg-decor"
         style={{ y: bgNumberY }}
       >
@@ -101,10 +101,15 @@ function ProjectItem({ project, index }) {
 
       <div className="plist-image-wrap">
         <motion.div
-          className="plist-img-frame"
+          className={`plist-img-frame ${project.img === mern2 ? 'full-width-frame' : ''}`}
           style={{ scale: imageScale, rotate: imageRotate }}
         >
-          <img src={project.img} alt={project.subtitle} className="plist-img" />
+          <img
+            src={project.img}
+            alt={project.subtitle}
+            className="plist-img"
+            style={project.img === mern2 ? { height: 'auto', width: '100%', objectFit: 'contain' } : {}}
+          />
         </motion.div>
       </div>
     </motion.div>

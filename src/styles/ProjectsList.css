@@ -366,6 +366,15 @@
   display: block;
 }
 
+/* For expansive/full-length tool screenshots */
+.full-width-frame {
+  aspect-ratio: auto !important;
+  max-width: none !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+
 /* ── Shopify Store Frame (For long screenshots) ── */
 .plist-img-frame.shopify-store-frame {
   aspect-ratio: 10/16; /* Tall portrait aspect */

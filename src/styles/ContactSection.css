@@ -156,6 +156,69 @@
   box-shadow: 12px 12px 0px var(--accent);
 }
 
+/* ── Success Message Styling ── */
+.contact-success-msg {
+  background: #fff;
+  border: 4px solid #000;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 10px 10px 0px #000;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.contact-success-msg h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 950;
+  color: #000;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.contact-success-msg p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #000;
+  opacity: 0.8;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.contact-reset-btn {
+  margin-top: 1rem;
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.8rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 4px 4px 0px var(--accent);
+}
+
+.contact-reset-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 6px 6px 0px var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+
+
 /* ── Right Column ── */
 .contact-right {
   flex: 1;
