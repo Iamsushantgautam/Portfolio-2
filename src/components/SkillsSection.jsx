@@ -11,6 +11,7 @@ import {
   SiPython,
   SiMysql,
   SiOpenai,
+  SiBootstrap,
 } from 'react-icons/si'
 import jsIcon from '../assets/icons/javascript.svg'
 import reactIcon from '../assets/icons/react.svg'
@@ -24,6 +25,7 @@ const SKILLS = [
       { name: 'JavaScript', icon: <img src={jsIcon} alt="JavaScript" className="custom-skill-icon" /> },
       { name: 'React', icon: <img src={reactIcon} alt="React" className="custom-skill-icon" /> },
       { name: 'Tailwind CSS', icon: <SiTailwindcss color="#06B6D4" /> },
+      { name: 'Bootstrap', icon: <SiBootstrap color="#7952B3" /> },
     ],
   },
   {

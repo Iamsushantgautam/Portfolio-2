@@ -39,7 +39,7 @@ const MERN_PROJECTS = [
     img: mern1,
     live: 'https://witcet.online',
     github: 'https://github.com/Iamsushantgautam/witcet-version-3.0',
-    tech: 'Node.js, Express.js, MongoDB, Bootstrap, CSS',
+    tech: 'Node.js, Express.js, MongoDB, React, Bootstrap, CSS',
   },
 ]
 

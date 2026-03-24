@@ -9,6 +9,7 @@ import EducationSection from './components/EducationSection'
 import SkillsSection from './components/SkillsSection'
 import MernProjects from './components/MernProjects'
 import ShopifyProjects from './components/ShopifyProjects'
+import UtilityToolsSection from './components/UtilityToolsSection'
 import ContactSection from './components/ContactSection'
 import FooterSection from './components/FooterSection'
 import Navbar from './components/Navbar'
@@ -65,6 +66,10 @@ function App() {
 
       <section id="shopify">
         <ShopifyProjects />
+      </section>
+
+      <section id="utility-tools">
+        <UtilityToolsSection />
       </section>
 
       <section id="contact">

@@ -144,3 +144,20 @@
     /* Can add a hamburger drawer here if needed */
   }
 }
+
+@media (max-width: 480px) {
+  .navbar {
+    height: 70px;
+    padding: 0 4%;
+  }
+
+  .nav-logo {
+    font-size: 1.1rem;
+  }
+
+  .nav-cta {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.65rem;
+    box-shadow: 4px 4px 0 var(--accent);
+  }
+}

@@ -5,9 +5,11 @@
 .ed-section {
   width: 100%;
   min-height: 100vh;
-  background-color: #E91E63; /* High-energy Pink */
-  background-image: radial-gradient(rgba(0,0,0,0.1) 2px, transparent 2px);
-  background-size: 40px 40px; /* Halftone Dot Effect */
+  background-color: #E91E63;
+  /* High-energy Pink */
+  background-image: radial-gradient(rgba(0, 0, 0, 0.1) 2px, transparent 2px);
+  background-size: 40px 40px;
+  /* Halftone Dot Effect */
 
   display: flex;
   align-items: center;
@@ -56,7 +58,8 @@
 .ed-split {
   display: flex;
   gap: 6rem;
-  align-items: flex-start; /* Alignment for sticky col */
+  align-items: flex-start;
+  /* Alignment for sticky col */
 }
 
 .ed-header {
@@ -144,8 +147,9 @@
 }
 
 .ed-title-accent {
-  color: transparent;
-  -webkit-text-stroke: 3px #fff;
+  color: #fff;
+  -webkit-text-stroke: 3px #000;
+  text-shadow: 10px 10px 0px #000;
 }
 
 /* ── Pop Art Timeline Layout ── */
@@ -274,9 +278,19 @@
 
 /* ── Responsive ── */
 @media (max-width: 1024px) {
-  .ed-section-bg-text { font-size: 35vw; top: 10%; }
-  .ed-split { gap: 3rem; }
-  .ed-right { flex: 0 0 40%; top: 2rem; }
+  .ed-section-bg-text {
+    font-size: 35vw;
+    top: 10%;
+  }
+
+  .ed-split {
+    gap: 3rem;
+  }
+
+  .ed-right {
+    flex: 0 0 40%;
+    top: 2rem;
+  }
 }
 
 @media (max-width: 768px) {

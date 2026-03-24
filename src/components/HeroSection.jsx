@@ -51,7 +51,7 @@ function HeroSection() {
     offset: ["start start", "end start"]
   })
 
-  const yText = useTransform(scrollYProgress, [0, 1], [0, 250])
+  const yText = useTransform(scrollYProgress, [0, 1], [0, 100])
   const yImg = useTransform(scrollYProgress, [0, 1], [0, -100])
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
   const pathLength = useScroll({
@@ -71,7 +71,8 @@ function HeroSection() {
       {/* Giant Background Text (SOLID - BEHIND IMAGE) */}
       <motion.div className="hero-bg-text-container" style={{ y: yText }}>
         <motion.h1 variants={fadeUp} className="huge-title">
-          SUSHANT
+          <span className="desktop-name">SUSHANT</span>
+          <span className="mobile-name">SUSHANT<br />KUMAR<br />GAUTAM</span>
         </motion.h1>
       </motion.div>
 
@@ -80,12 +81,13 @@ function HeroSection() {
         className="hero-bg-text-container outline-layer"
         style={{
           y: yText,
-          x: useTransform(scrollYProgress, [0, 1], [0, 100]),
-          opacity: useTransform(scrollYProgress, [0, 0.2], [0, 1])
+          x: useTransform(scrollYProgress, [0, -1], [0, 100]),
+          opacity: useTransform(scrollYProgress, [0, 0.5], [1, 0]) // Always visible at start, fades out as we scroll deep
         }}
       >
-        <motion.h1 variants={fadeUp} className="huge-title outline-only">
-          SUSHANT
+        <motion.h1 variants={fadeUp} className="huge-title outline-only  ">
+          <span className="desktop-name">SUSHANT</span>
+          <span className="mobile-name">SUSHANT<br />KUMAR<br />GAUTAM</span>
         </motion.h1>
       </motion.div>
 

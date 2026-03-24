@@ -8,14 +8,18 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: var(--bg-dark);
+  background-color: #9333ea;
+  /* Vibrant Purple background from the image */
+  background-image: radial-gradient(rgba(0, 0, 0, 0.2) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+  /* More dense grid of dots */
 }
 
 .hero-bg-text-container {
   position: absolute;
   top: 55%;
+  /* Adjusted to sit lower and clear the intro text */
   left: 0;
-  transform: translateY(-50%);
   width: 100%;
   box-sizing: border-box;
   display: flex;
@@ -39,24 +43,31 @@
 
 /* ADJUSTED SUSHANT FONT SIZE DOWN SLIGHTLY */
 .huge-title {
-  font-size: clamp(6rem, 20vw, 28rem);
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 50%, var(--accent) 100%);
-
-  background-size: 200% auto;
-  animation: gradient-flow 10s linear infinite;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-  line-height: 0.75;
+  font-size: clamp(6rem, 20vw, 24rem);
+  /* Slightly smaller to feel more like the image ratio */
+  color: #fff;
+  -webkit-text-stroke: 6px #000;
+  /* Much bolder black outline as in the image */
+  text-shadow: 10px 10px 0px #000;
+  /* Shadow removed for a flat pop-art look */
+  line-height: 0.8;
   margin: 0;
   display: block;
   text-align: left;
   position: relative;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.02em;
   opacity: 1;
   white-space: nowrap;
   text-transform: uppercase;
+  font-weight: 900;
+}
+
+.mobile-name {
+  display: none;
+}
+
+.desktop-name {
+  display: block;
 }
 
 @keyframes gradient-flow {
@@ -82,12 +93,19 @@
 }
 
 .hero-bg-text-container.outline-layer {
-  z-index: 5;
+  z-index: 2;
+  /* Ensure it's visible but behind the figure */
 }
 
 .huge-title.outline-only {
   color: transparent;
-  -webkit-text-stroke: 3px var(--text-primary);
+  /* Changed to transparent to create that "hollow" layer look */
+  -webkit-text-stroke: 3px #000;
+  /* Thinner stroke for the top layer to see through */
+  text-shadow: none;
+  /* No shadow on the front layer to keep it clean */
+  text-transform: uppercase;
+  font-weight: 900;
 }
 
 .hero-image-layer {
@@ -130,10 +148,10 @@
 
 .hero-intro-text {
   position: absolute;
-  top: 22%;
-  left: 10%;
-  /* name title shift */
-  z-index: 50;
+  top: 20%;
+  /* Moved higher to clear the background name */
+  left: 5%;
+  z-index: 10;
   max-width: 550px;
   color: var(--text-primary);
   text-align: left;
@@ -332,11 +350,27 @@
   }
 
   .hero-bg-text-container {
-    top: 50%;
+    top: 12%;
+    /* Moved to the very top for mobile */
   }
 
   .huge-title {
-    font-size: clamp(3.5rem, 15vw, 6rem);
+    font-size: clamp(5.8rem, 22vw, 7.5rem); /* Pushing even larger for mobile impact */
+    -webkit-text-stroke: 3.5px #000;
+    text-shadow: none;
+    white-space: normal;
+    line-height: 0.9;
+    text-align: center;
+  }
+
+  .desktop-name {
+    display: none;
+  }
+
+  .mobile-name {
+    display: block;
+    text-align: center;
+    width: 100vw;
   }
 
   .pill-left {
@@ -427,25 +461,39 @@
   }
 
   .intro-greeting {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
+    /* Scaled down slightly to fit better */
+    padding: 0.8rem 1.2rem;
     transform: rotate(0deg);
+    width: 90%;
+    box-sizing: border-box;
   }
 
   .intro-title {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     transform: rotate(0deg);
+    width: 85%;
+    box-sizing: border-box;
+    text-align: center;
   }
 
   .hero-bg-text-container {
-    top: 35%;
+    top: 20%;
+    /* Consistently very high across mobile */
+    /* Adjusted for consistent placement */
     text-align: center;
     align-items: center;
     padding-left: 0;
   }
 
   .huge-title {
-    font-size: 4rem;
+    font-size: clamp(4.2rem, 18vw, 6rem); /* Consistent increase for small mobile */
+    border-color: #000;
     text-align: center;
+    -webkit-text-stroke: 3px #000;
+    text-shadow: none;
+    white-space: normal;
+    line-height: 0.9;
   }
 
   .foreground-quote {
@@ -482,11 +530,15 @@
   }
 
   .bottom-bar {
+    flex-direction: column;
     justify-content: center;
-    gap: 0.5rem;
-    font-size: 0.65rem;
+    gap: 0.4rem;
+    font-size: 0.6rem;
     padding: 0 5%;
-    bottom: 1rem;
+    bottom: 0.5rem;
+    left: 0;
+    right: 0;
+    text-align: center;
   }
 
   .bottom-bar span:nth-child(2),
