@@ -98,7 +98,7 @@ function ExperienceSection() {
         <div className="exp-split">
           <div className="exp-image-col">
             <div className="exp-image-wrapper">
-              <img src={me3} alt="My Experience" className="exp-image" />
+              <img src={me3} alt="My Experience" className="exp-image" loading="lazy" />
             </div>
           </div>
 

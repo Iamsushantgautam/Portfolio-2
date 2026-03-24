@@ -138,6 +138,7 @@ function ProjectItem({ project, index }) {
               alt={project.subtitle} 
               className="plist-img full-height-img" 
               style={{ objectPosition: isMobile ? imageObjectPos : 'top' }}
+              loading="lazy"
             />
           </div>
         </motion.div>

@@ -1,29 +1,31 @@
-import { useEffect } from 'react'
+import { useEffect, Suspense, lazy } from 'react'
 import Lenis from 'lenis'
 import './styles/App.css'
 
-import HeroSection from './components/HeroSection'
-import AboutSection from './components/AboutSection'
-import ExperienceSection from './components/ExperienceSection'
-import EducationSection from './components/EducationSection'
-import SkillsSection from './components/SkillsSection'
-import MernProjects from './components/MernProjects'
-import ShopifyProjects from './components/ShopifyProjects'
-import UtilityToolsSection from './components/UtilityToolsSection'
-import ContactSection from './components/ContactSection'
-import FooterSection from './components/FooterSection'
 import Navbar from './components/Navbar'
 import FloatingBg from './components/FloatingBg'
+import HeroSection from './components/HeroSection' // No lazy for LCP
+
+// Lazy Load Sections for faster initial bundle and loading
+const AboutSection = lazy(() => import('./components/AboutSection'))
+const ExperienceSection = lazy(() => import('./components/ExperienceSection'))
+const EducationSection = lazy(() => import('./components/EducationSection'))
+const SkillsSection = lazy(() => import('./components/SkillsSection'))
+const MernProjects = lazy(() => import('./components/MernProjects'))
+const ShopifyProjects = lazy(() => import('./components/ShopifyProjects'))
+const UtilityToolsSection = lazy(() => import('./components/UtilityToolsSection'))
+const ContactSection = lazy(() => import('./components/ContactSection'))
+const FooterSection = lazy(() => import('./components/FooterSection'))
 
 function App() {
   // Global smooth scroll setup with Lenis
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.5,
-      lerp: 0.1,
+      duration: 1.2, /* Slightly faster for snappier feel */
+      lerp: 0.15,    /* More responsive follow-through */
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smooth: true,
-      wheelMultiplier: 1.1, /* Slightly more sensitive */
+      wheelMultiplier: 1.1,
       touchMultiplier: 2,
     })
 
@@ -40,43 +42,43 @@ function App() {
       <FloatingBg />
       <Navbar />
 
-      <section id="hero">
-        <HeroSection />
-      </section>
+      <HeroSection />
 
-      <section id="about">
-        <AboutSection />
-      </section>
+      <Suspense fallback={<div className="section-loader" />}>
+        <section id="about">
+          <AboutSection />
+        </section>
 
-      <section id="education">
-        <EducationSection />
-      </section>
+        <section id="education">
+          <EducationSection />
+        </section>
 
-      <section id="experience">
-        <ExperienceSection />
-      </section>
+        <section id="experience">
+          <ExperienceSection />
+        </section>
 
-      <section id="skills">
-        <SkillsSection />
-      </section>
+        <section id="skills">
+          <SkillsSection />
+        </section>
 
-      <section id="mern">
-        <MernProjects />
-      </section>
+        <section id="mern">
+          <MernProjects />
+        </section>
 
-      <section id="shopify">
-        <ShopifyProjects />
-      </section>
+        <section id="shopify">
+          <ShopifyProjects />
+        </section>
 
-      <section id="utility-tools">
-        <UtilityToolsSection />
-      </section>
+        <section id="utility-tools">
+          <UtilityToolsSection />
+        </section>
 
-      <section id="contact">
-        <ContactSection />
-      </section>
+        <section id="contact">
+          <ContactSection />
+        </section>
 
-      <FooterSection />
+        <FooterSection />
+      </Suspense>
     </div>
   )
 }
