@@ -5,9 +5,11 @@
 .about-section {
   width: 100%;
   min-height: 100vh;
-  background-color: #00BCD4; /* Radiant Cyan */
-  background-image: radial-gradient(rgba(0,0,0,0.1) 2px, transparent 2px);
-  background-size: 40px 40px; /* Halftone Dot Effect */
+  background-color: #00BCD4;
+  /* Radiant Cyan */
+  background-image: radial-gradient(rgba(0, 0, 0, 0.1) 2px, transparent 2px);
+  background-size: 40px 40px;
+  /* Halftone Dot Effect */
 
   display: flex;
   align-items: center;
@@ -74,7 +76,8 @@
   left: 20px;
   width: 100%;
   height: 100%;
-  background: var(--accent); /* Brand Pink */
+  background: var(--accent);
+  /* Brand Pink */
   border: 4px solid #000;
   z-index: -1;
 }
@@ -170,6 +173,34 @@
   letter-spacing: 0.04em;
 }
 
+.about-specialties-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  text-align: left;
+}
+
+.about-specialties-list li {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  position: relative;
+  padding-left: 1.3rem;
+}
+
+.about-specialties-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #000;
+  font-weight: 900;
+}
+
 .about-decorative-squiggle {
   display: flex;
   align-items: center;
@@ -213,5 +244,18 @@
 
   .about-decorative-squiggle {
     display: none;
+  }
+
+  .about-specialties-list {
+    display: block;
+    text-align: center;
+  }
+
+  .about-specialties-list li {
+    padding-left: 0;
+  }
+
+  .about-specialties-list li::before {
+    content: none;
   }
 }

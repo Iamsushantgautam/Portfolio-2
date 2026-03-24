@@ -248,7 +248,36 @@
 }
 
 @media (max-width: 480px) {
+  .contact-area {
+    gap: 1rem;
+  }
+  
   .contact-email-wrapper {
-    flex-direction: column-reverse;
+    flex-direction: column;
+    gap: 0.8rem;
+    font-size: clamp(1.05rem, 5.2vw, 1.4rem);
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-email {
+    overflow-wrap: anywhere;
+    word-break: normal;
+    line-height: 1.2;
+    padding: 0 5%;
+    max-width: 100%;
+  }
+
+  .copy-btn {
+    align-self: center;
+  }
+  
+  .contact-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .contact-links span {
+    display: none; /* Hide bullets on mobile vertical layout */
   }
 }

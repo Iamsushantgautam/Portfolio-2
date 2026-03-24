@@ -11,13 +11,13 @@ function ContactSection() {
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["0 1.2", "0.8 1"]
+    offset: ["start end", "center center"]
   })
 
   // Animation values
-  const opacity = useTransform(scrollYProgress, [0, 1], [0.1, 1])
-  const yOffset = useTransform(scrollYProgress, [0, 1], [100, 0])
-  const headerX = useTransform(scrollYProgress, [0, 1], [-100, 0])
+  const opacity = useTransform(scrollYProgress, [0, 1], [0.3, 1])
+  const yOffset = useTransform(scrollYProgress, [0, 1], [40, 0])
+  const headerX = useTransform(scrollYProgress, [0, 1], [-40, 0])
 
   // Giant background text scroll
   const xMove = useTransform(completeProgress, [0, 1], [100, -300])

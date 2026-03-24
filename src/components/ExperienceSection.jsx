@@ -7,35 +7,38 @@ import '../styles/ExperienceSection.css'
 const EXPERIENCES = [
   {
     title: 'Web Specialist Intern',
-    company: 'GrrowEzy, Remote',
-    period: 'Nov 2025 - April 2026',
-    description: 'Specializing in web architecture and innovative digital solutions for dynamic client bases.',
+    company: 'GrrowEzy, Remote, Bengaluru',
+    period: 'Nov 2025 - Mar 2026',
+    description: 'Specializing in Shopify store visuals, branding assets, and UI/UX optimization for ecommerce.',
     summary: [
-      'Worked on digital branding, website content, and visual assets.',
-      'Collaborated remotely to support brand growth, ensure consistency, and deliver creative web solutions.',
-      'Gained experience in web design, content creation, and digital marketing strategies.'
+      'Designed and optimized Shopify store visuals and branding assets',
+      'Delivered 50+ ecommerce-ready creatives for landing and product pages',
+      'Collaborated with remote teams to maintain brand consistency',
+      'Improved user experience through UI enhancements and CRO techniques'
     ]
   },
   {
-    title: 'Content & E-Commerce Management',
-    company: 'DRS Gems And Jewels Private Limited., Lucknow',
+    title: 'Content and Ecommerce Management',
+    company: 'DRS Gems and Jewels Private Limited, Lucknow',
     period: 'Oct 2025 - Nov 2025',
-    description: 'Managed product catalog and e-commerce operations, optimizing listing visibility and conversion.',
+    description: 'Managed extensive Shopify product listings and optimized product pages for search visibility and conversion.',
     summary: [
-      'Managed product catalog and e-commerce operations.',
-      'Optimized product listings for better visibility and conversion.',
-      'Handled inventory and customer engagement on various platforms.'
+      'Managed 200+ Shopify product listings including inventory updates and pricing accuracy',
+      'Optimized product pages using SEO techniques to improve search visibility',
+      'Created high-converting product visuals and marketing assets',
+      'Supported daily ecommerce operations and performance tracking'
     ]
   },
   {
     title: 'Shopify Web Development Intern',
     company: 'Digital Heroes, Lucknow',
     period: 'Jul 2025 - Sep 2025',
-    description: 'Developed custom Shopify themes and integrated critical third-party apps to enhance UI/UX.',
+    description: 'Customized Shopify themes and integrated apps to enhance store functionality and user experience.',
     summary: [
-      'Developed custom Shopify themes and apps.',
-      'Integrated third-party APIs and services for enhanced functionality.',
-      'Optimized website performance and mobile responsiveness.'
+      'Customized Shopify themes using Liquid, HTML, CSS, and JavaScript',
+      'Integrated and configured Shopify apps to enhance store functionality and performance',
+      'Improved page load speed by 25 percent through performance optimization techniques',
+      'Worked on multiple client ecommerce stores, enhancing UI and user experience'
     ]
   },
 ]

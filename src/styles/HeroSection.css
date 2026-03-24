@@ -46,9 +46,8 @@
   font-size: clamp(6rem, 20vw, 24rem);
   /* Slightly smaller to feel more like the image ratio */
   color: #fff;
-  -webkit-text-stroke: 6px #000;
-  /* Much bolder black outline as in the image */
-  text-shadow: 10px 10px 0px #000;
+  -webkit-text-stroke: 4px #000;
+  text-shadow: 8px 8px 0px #000;
   /* Shadow removed for a flat pop-art look */
   line-height: 0.8;
   margin: 0;

@@ -378,7 +378,8 @@
   }
 
   .contact-title {
-    font-size: clamp(3rem, 12vw, 4rem);
+    font-size: clamp(2.2rem, 10vw, 3.5rem);
+    line-height: 1;
   }
 
   .contact-info-title {
@@ -388,7 +389,7 @@
 
   .detail-value {
     font-size: 0.95rem;
-    word-break: break-all; /* Ensures email wraps correctly */
+    word-break: break-all;
   }
 
   .contact-social-pills {
@@ -404,5 +405,43 @@
   .contact-form input,
   .contact-form textarea {
     font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 3rem 5% 4rem;
+  }
+
+  .contact-left {
+    gap: 2.5rem;
+  }
+
+  .contact-header {
+    gap: 0.4rem;
+  }
+
+  .contact-title {
+    font-size: clamp(1.8rem, 12vw, 2.4rem);
+    line-height: 1;
+  }
+
+  .contact-form {
+    gap: 1.2rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 1rem;
+    padding: 1rem 0;
+  }
+
+  .contact-submit-btn {
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 1.2rem;
+    text-align: center;
+    font-size: 1.1rem;
+    align-self: stretch;
   }
 }

@@ -62,8 +62,8 @@
 
 .exp-title-accent {
   color: #fff;
-  -webkit-text-stroke: 3px #000;
-  text-shadow: 10px 10px 0px #000;
+  -webkit-text-stroke: 2.5px #000;
+  text-shadow: 8px 8px 0px #000;
 }
 
 /* ── Two Column Split Layout ── */
@@ -424,8 +424,22 @@
     text-align: center;
   }
 
+  .exp-image-col {
+    max-width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .exp-image-wrapper {
+    max-width: 95vw;
+  }
+
   .exp-title {
     font-size: 3rem;
+  }
+
+  .exp-title-accent {
+    -webkit-text-stroke: 1.5px #000;
+    text-shadow: 4px 4px 0px #000;
   }
 
   .exp-grid {

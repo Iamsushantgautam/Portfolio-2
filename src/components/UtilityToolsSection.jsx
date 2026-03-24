@@ -10,14 +10,20 @@ const EXTENSION_DATA = {
   category: 'Chrome Extension',
   title: 'Shopify Product Scraper',
   subtitle: 'Powerful Data Extraction Utility',
-  description: 'A professional-grade Chrome extension designed to streamline product data extraction from Shopify-powered stores. It features automatic platform detection, collection-based filtering, and a comprehensive dashboard showing store statistics. Built with Manifest V3 for optimal performance and security, it allows one-click export of complete product catalogs to Shopify-compatible CSV files.',
+  period: 'April 2024',
+  points: [
+    'Developed a Chrome extension to automate extraction of Shopify product data for bulk processing',
+    'Scraped product details including titles, prices, images, and variants using DOM parsing techniques',
+    'Implemented Shopify store detection and collection-based filtering for targeted data extraction',
+    'Built deep scanning functionality and exported data into Shopify-ready CSV format for bulk import'
+  ],
   features: [
     { icon: <Zap size={18} />, label: 'Auto-detection' },
     { icon: <Database size={18} />, label: 'Deep Scanning' },
     { icon: <BarChart3 size={18} />, label: 'Store Insights' },
     { icon: <ShieldCheck size={18} />, label: 'Manifest V3' }
   ],
-  tech: 'JavaScript (ES6+), HTML5, CSS3, Chrome Extension API',
+  tech: 'JavaScript, Chrome Extensions API (Manifest V3), HTML, CSS',
   github: 'https://github.com/Iamsushantgautam/Chrome-extension/tree/main/shopify%20product%20scraper',
   img: extensionMockup
 }
@@ -85,10 +91,19 @@ function UtilityToolsSection() {
               <span>{EXTENSION_DATA.number}</span>
             </div>
             <h2 className="plist-category">{EXTENSION_DATA.category}</h2>
-            <h3 className="plist-subtitle">{EXTENSION_DATA.title}</h3>
-            <p className="plist-description">
-              {EXTENSION_DATA.description}
-            </p>
+            <div className="plist-subtitle-row">
+              <h3 className="plist-subtitle">{EXTENSION_DATA.title}</h3>
+              <span className="plist-period">{EXTENSION_DATA.period}</span>
+            </div>
+            <ul className="plist-points">
+              {EXTENSION_DATA.points.map((point, i) => (
+                <li key={i} className="plist-point">{point}</li>
+              ))}
+            </ul>
+
+            {/* <div className="plist-tech">
+              <strong>Tools used:</strong> {EXTENSION_DATA.tech}
+            </div> */}
 
             <div className="chrome-feature-grid">
               {EXTENSION_DATA.features.map((feature, i) => (

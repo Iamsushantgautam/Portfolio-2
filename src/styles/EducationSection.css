@@ -46,9 +46,6 @@
   letter-spacing: -0.02em;
 }
 
-
-
-
 .ed-container {
   max-width: 1400px;
   /* Made slightly wider to fit the side-by-side layout comfortably */
@@ -148,8 +145,8 @@
 
 .ed-title-accent {
   color: #fff;
-  -webkit-text-stroke: 3px #000;
-  text-shadow: 10px 10px 0px #000;
+  -webkit-text-stroke: 2.5px #000;
+  text-shadow: 8px 8px 0px #000;
 }
 
 /* ── Pop Art Timeline Layout ── */
@@ -363,5 +360,10 @@
 
   .ed-title {
     font-size: 3rem;
+  }
+
+  .ed-title-accent {
+    -webkit-text-stroke: 1.5px #000;
+    text-shadow: 4px 4px 0px #000;
   }
 }

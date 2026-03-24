@@ -99,10 +99,10 @@ function FooterSection() {
           <span className="contact-eyebrow">Looking for a new talent?</span>
           
           <div className="contact-email-wrapper">
+            <span className="contact-email">iamsushantgautam@gmail.com</span>
             <button className="copy-btn" onClick={handleCopy} aria-label="Copy Email">
-              {copied ? <CheckCircle2 color="#4ade80" size={32} /> : <Copy size={32} />}
+              {copied ? <CheckCircle2 color="#4ade80" size={24} /> : <Copy size={24} />}
             </button>
-            <span className="contact-email">@iamsushantgautam@gmail.com</span>
           </div>
 
           <div className="contact-links">

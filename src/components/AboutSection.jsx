@@ -88,21 +88,21 @@ function AboutSection() {
             <ScrollReveal className="about-block" direction="up">
               <h3 className="about-label">EXPERIENCE</h3>
               <p className="about-text">
-                I HAVE ACQUIRED OVER 6+ MONTHS OF HANDS-ON EXPERIENCE IN FULL-STACK DEVELOPMENT AND SHOPIFY ECOSYSTEMS.
+                I HAVE ACQUIRED OVER 8+ MONTHS OF HANDS-ON EXPERIENCE IN FULL-STACK DEVELOPMENT AND SHOPIFY ECOSYSTEMS.
 
               </p>
             </ScrollReveal>
 
             <ScrollReveal className="about-block" direction="up">
               <h3 className="about-label">SPECIALTIES</h3>
-              <p className="about-text">
-                • WEB DEVELOPMENT<br />
-                • SHOPIFY DEVELOPMENT<br />
-                • APP INTEGRATIONS <br />
-                • API ARCHITECTURE<br />
-                • CONVERSION RATE OPTIMISATION<br />
-                • PROBLEM SOLVING
-              </p>
+              <ul className="about-specialties-list">
+                <li>WEB DEVELOPMENT</li>
+                <li>SHOPIFY DEVELOPMENT</li>
+                <li>APP INTEGRATIONS</li>
+                <li>API ARCHITECTURE</li>
+                <li>CONVERSION RATE OPTIMISATION</li>
+                <li>PROBLEM SOLVING</li>
+              </ul>
             </ScrollReveal>
 
             {/* Decorative Squiggle */}

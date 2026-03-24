@@ -44,9 +44,22 @@ const SKILLS = [
     ],
   },
   {
-    category: 'E-COMMERCE',
+    category: 'SHOPIFY TECH',
     tools: [
-      { name: 'Shopify', icon: <SiShopify color="#95BF47" /> },
+      { name: 'Liquid', icon: <SiShopify color="#95BF47" /> },
+      { name: 'Theme Customization', icon: <SiShopify color="#95BF47" /> },
+      { name: 'Store Setup', icon: <SiShopify color="#95BF47" /> },
+      { name: 'Shopify CLI', icon: <SiShopify color="#95BF47" /> },
+      { name: 'App Integration', icon: <SiShopify color="#95BF47" /> },
+    ],
+  },
+  {
+    category: 'Ecommerce Strategy',
+    tools: [
+      { name: 'CRO', icon: <SiShopify color="#95BF47" /> },
+      { name: 'SEO', icon: <SiShopify color="#95BF47" /> },
+      { name: 'Product Optimization', icon: <SiShopify color="#95BF47" /> },
+      { name: 'Performance Optimization', icon: <SiShopify color="#95BF47" /> },
     ],
   },
   {
