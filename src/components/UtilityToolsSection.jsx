@@ -93,7 +93,7 @@ function UtilityToolsSection() {
             <h2 className="plist-category">{EXTENSION_DATA.category}</h2>
             <div className="plist-subtitle-row">
               <h3 className="plist-subtitle">{EXTENSION_DATA.title}</h3>
-              <span className="plist-period">{EXTENSION_DATA.period}</span>
+              {/* <span className="plist-period">{EXTENSION_DATA.period}</span> */}
             </div>
             <ul className="plist-points">
               {EXTENSION_DATA.points.map((point, i) => (

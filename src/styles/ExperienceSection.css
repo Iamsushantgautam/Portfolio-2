@@ -4,7 +4,7 @@
 
 .exp-section {
   width: 100%;
-  padding: 10rem 0;
+  padding: 6rem 0 2rem 0;
   /* Padding for start/end spacing */
   background: var(--bg-dark, #e8d94b);
   background-image: radial-gradient(rgba(0, 0, 0, 0.1) 2px, transparent 2px);
@@ -138,7 +138,7 @@
   gap: 8rem;
   /* Large gaps for scroll impact */
   width: 100%;
-  padding-bottom: 20vh;
+  padding-bottom: 5vh;
   /* Extra space to scroll past the last card */
 }
 
@@ -389,12 +389,35 @@
   }
 
   .exp-image-col {
-    position: relative;
-    top: 0;
-    width: 100%;
-    max-width: 600px;
-    /* Increased from 500px or 450px */
-    align-self: center;
+    display: none;
+  }
+}
+
+/* ── Tablet Center Layout (769px to 1080px) ──────────────── */
+@media screen and (min-width: 769px) and (max-width: 1080px) {
+  .exp-section {
+    padding: 5rem 0;
+  }
+
+  .exp-split {
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .exp-grid {
+    align-items: center;
+    gap: 4rem;
+    padding-bottom: 5vh;
+  }
+
+  .exp-card {
+    margin: 0 auto;
+    width: 95%;
+  }
+
+  .exp-image-col {
+    display: none;
   }
 }
 
@@ -425,8 +448,7 @@
   }
 
   .exp-image-col {
-    max-width: 100%;
-    margin-bottom: 2rem;
+    display: none;
   }
 
   .exp-image-wrapper {
