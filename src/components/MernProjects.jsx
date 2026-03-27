@@ -6,6 +6,7 @@ import '../styles/ProjectsList.css'
 import mern1 from '../assets/MERN Project/portfolio1.1.png'
 import mern2 from '../assets/MERN Project/portfolio2-full.png'
 import expenseTrackerImg from '../assets/MERN Project/portfolio3-full.png'
+import wittoolImg from '../assets/MERN Project/wittool.png'
 
 const MERN_PROJECTS = [
   {
@@ -22,14 +23,15 @@ const MERN_PROJECTS = [
   {
     number: '02',
     category: 'Digital Utility',
-    subtitle: 'Image PDF Converter: Suite',
-    period: 'December 2024',
-    description: 'Designed and developed a comprehensive image-to-PDF conversion tool supporting compression, resizing, merging, watermarking, and password protection. Optimized with client-side processing for fast, secure file handling and integrated QR code generation for verification.',
-    img: mern2,
-    live: 'https://imagepdf-converter.netlify.app/',
-    github: 'https://github.com/Iamsushantgautam/ImagePDF-Converter',
-    tech: 'HTML, CSS, JavaScript',
+    subtitle: 'Wit Tools: All-in-One Suite',
+    period: 'March 2025',
+    description: 'Built a powerful all-in-one digital utility platform featuring image processing, PDF tools including compression, merging, page numbering, watermarking, and a passport photo maker. Designed for fast, client-side processing with an intuitive categorized UI and mobile-responsive accordion navigation.',
+    img: wittoolImg,
+    live: 'https://wit-tools.sushant.online',
+    github: 'https://github.com/Iamsushantgautam/Wit-Tools',
+    tech: 'React',
   },
+
   {
     number: '03',
     category: 'Educational Platform',
@@ -101,15 +103,28 @@ function ProjectItem({ project, index }) {
 
       <div className="plist-image-wrap">
         <motion.div
-          className={`plist-img-frame ${project.img === mern2 ? 'full-width-frame' : ''}`}
+          className="plist-browser-mockup"
           style={{ scale: imageScale, rotate: imageRotate }}
         >
-          <img
-            src={project.img}
-            alt={project.subtitle}
-            className="plist-img"
-            style={project.img === mern2 ? { height: 'auto', width: '100%', objectFit: 'contain' } : {}}
-          />
+          {/* Browser Top Bar */}
+          <div className="plist-browser-bar">
+            <div className="plist-browser-dots">
+              <span className="dot red" />
+              <span className="dot yellow" />
+              <span className="dot green" />
+            </div>
+            <div className="plist-browser-url">
+              <span>{project.live.replace('https://', '')}</span>
+            </div>
+          </div>
+          {/* Screenshot */}
+          <div className="plist-browser-screen">
+            <img
+              src={project.img}
+              alt={project.subtitle}
+              className="plist-img"
+            />
+          </div>
         </motion.div>
       </div>
     </motion.div>
