@@ -734,10 +734,10 @@
     /* Force Centering */
     max-width: 90%;
     aspect-ratio: 9/16;
-    border: 8px solid #000;
-    /* Bold phone-like frame */
+    border: none;
+    /* No Border */
     border-radius: 12px;
-    background: #000;
+    background: transparent;
     box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.2);
     transform: none !important;
     /* Stop rotation on mobile */

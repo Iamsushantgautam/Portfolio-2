@@ -82,7 +82,8 @@
 
 /* ── Individual card ─────────────────────── */
 .ps-card {
-  width: 420px;       /* must match CARD_WIDTH in jsx */
+  width: 420px;
+  /* must match CARD_WIDTH in jsx */
   flex-shrink: 0;
   background: #ffffff;
   border: 4px solid #000000;
@@ -123,7 +124,8 @@
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
-  background: var(--accent-secondary); /* Cyan as seen in small UI elements in reference */
+  background: var(--accent-secondary);
+  /* Cyan as seen in small UI elements in reference */
   color: #fff;
   font-size: 0.65rem;
   font-weight: 800;
@@ -147,7 +149,7 @@
   border-radius: 0;
   overflow: hidden;
   flex-shrink: 0;
-  border: 2px solid #000;
+  /* border: 2px solid #000; */
 }
 
 .ps-img {
@@ -214,7 +216,8 @@
   display: block;
   width: 100%;
   text-align: center;
-  background: var(--accent); /* Pink as seen in reference image CTA */
+  background: var(--accent);
+  /* Pink as seen in reference image CTA */
   color: #fff;
   padding: 0.65rem;
   font-size: 0.8rem;
@@ -252,8 +255,15 @@
 }
 
 @keyframes nudge {
-  0%, 100% { transform: translateX(0); }
-  50%       { transform: translateX(8px); }
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(8px);
+  }
 }
 
 /* ── Responsive ──────────────────────────── */

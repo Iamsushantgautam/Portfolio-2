@@ -3,8 +3,7 @@ import { useRef } from 'react'
 import { ArrowUpRight, Github, Globe } from 'lucide-react'
 import '../styles/ProjectsList.css'
 
-import mern1 from '../assets/MERN Project/portfolio1.1.png'
-import mern2 from '../assets/MERN Project/portfolio2-full.png'
+import witcetImg from '../assets/MERN Project/witcet.png'
 import expenseTrackerImg from '../assets/MERN Project/portfolio3-full.png'
 import wittoolImg from '../assets/MERN Project/wittool.png'
 
@@ -38,7 +37,7 @@ const MERN_PROJECTS = [
     subtitle: 'WITCET: Learn & Grow',
     period: 'April 2024',
     description: 'An online education platform offering vast study materials, practice tests, and secure content management. Built with RESTful APIs using Node.js and Express.js for scalable user authentication and implemented MongoDB for efficient, large-scale data storage.',
-    img: mern1,
+    img: witcetImg,
     live: 'https://witcet.online',
     github: 'https://github.com/Iamsushantgautam/witcet-version-3.0',
     tech: 'Node.js, Express.js, MongoDB, React, Bootstrap, CSS',
