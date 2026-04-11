@@ -8,12 +8,12 @@ const EXPERIENCES = [
   {
     title: 'Web Specialist Intern',
     company: 'GrrowEzy, Remote, Bengaluru',
-    period: 'Nov 2025 - Mar 2026',
+    period: 'Nov 2025 - Present',
     description: 'Specializing in Shopify store visuals, branding assets, and UI/UX optimization for ecommerce.',
     summary: [
       'Designed and optimized Shopify store visuals and branding assets',
       'Delivered 50+ ecommerce-ready creatives for landing and product pages',
-      'Collaborated with remote teams to maintain brand consistency',
+      'Collaborated in a remote team environment to deliver scalable and user-focused web solutions',
       'Improved user experience through UI enhancements and CRO techniques'
     ]
   },
