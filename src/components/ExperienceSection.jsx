@@ -6,6 +6,7 @@ import '../styles/ExperienceSection.css'
 
 const EXPERIENCES = [
   {
+    number: '01',
     title: 'Web Specialist Intern',
     company: 'GrrowEzy, Remote, Bengaluru',
     period: 'Nov 2025 - Present',
@@ -18,6 +19,7 @@ const EXPERIENCES = [
     ]
   },
   {
+    number: '02',
     title: 'Content and Ecommerce Management',
     company: 'DRS Gems and Jewels Private Limited, Lucknow',
     period: 'Oct 2025 - Nov 2025',
@@ -30,6 +32,7 @@ const EXPERIENCES = [
     ]
   },
   {
+    number: '03',
     title: 'Shopify Web Development Intern',
     company: 'Digital Heroes, Lucknow',
     period: 'Jul 2025 - Sep 2025',
@@ -64,6 +67,14 @@ function ExperienceCard({ exp, index, cardTheme, onOpenModal }) {
         y: translateY
       }}
     >
+      {/* Dynamic Background Number for each card */}
+      <motion.div 
+        className="exp-card-number-bg"
+        style={{ y: useTransform(scrollYProgress, [0, 1], [50, -50]) }}
+      >
+        {exp.number}
+      </motion.div>
+
       <div className="exp-main">
         <div className="exp-top">
           <h3 className="exp-role">{exp.title}</h3>
@@ -86,8 +97,26 @@ function ExperienceSection() {
   const sectionRef = useRef(null)
   const [selectedExp, setSelectedExp] = useState(null)
 
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  })
+
+  // Large background text movement - sync with others
+  const bgTextX = useTransform(scrollYProgress, [0, 1], [100, -100])
+
   return (
     <section className="exp-section" ref={sectionRef}>
+      {/* Giant Background Text */}
+      <div className="exp-bg-text-container">
+        <motion.span
+          className="exp-bg-text"
+          style={{ x: bgTextX }}
+        >
+          EXPERIENCE // JOURNEY // PROFESSIONAL // CAREER // GROWTH // EVOLUTION //
+        </motion.span>
+      </div>
+
       <div className="exp-sticky-container">
 
         <div className="exp-header">

@@ -1,0 +1,200 @@
+/* ============================================
+   FiverrSection.css
+   ============================================ */
+
+.fiverr-section {
+  background-color: #1dbf73;
+  /* Vibrant Fiverr Green */
+  background-image: radial-gradient(rgba(0, 0, 0, 0.1) 2px, transparent 2px);
+  background-size: 30px 30px;
+  padding: 10vh 5% 20vh 5%;
+  /* Increased padding for pinning feel */
+  position: relative;
+  z-index: 5;
+  overflow: visible !important;
+  /* Required for sticky children to work */
+}
+
+.fiverr-section .plist-bg-text {
+  -webkit-text-stroke-color: rgba(0, 0, 0, 0.08);
+  /* Dark tint */
+}
+
+.fiverr-section .plist-category {
+  color: #fff;
+  -webkit-text-stroke: 1.5px #000;
+  text-shadow: 6px 6px 0px #000;
+}
+
+.fiverr-section .plist-subtitle,
+.fiverr-section .plist-description {
+  color: #000;
+  font-weight: 600;
+}
+
+.fiverr-card-wrapper {
+  display: flex;
+  align-items: flex-start;
+  /* Changed to start for sticky to work */
+  gap: 6rem;
+  max-width: 1400px;
+  margin: 4rem auto 0 auto;
+  position: relative;
+}
+
+.fiverr-image-container {
+  flex: 0 0 50%;
+  position: sticky;
+  top: 15vh;
+  /* Pins the image 15vh from top */
+  align-self: flex-start;
+  z-index: 10;
+}
+
+.fiverr-img-frame {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 4px solid #000;
+  box-shadow: 20px 20px 0px #000;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.fiverr-img-frame:hover {
+  transform: translate(-10px, -10px);
+  box-shadow: 30px 30px 0px rgba(29, 191, 115, 0.3);
+}
+
+.fiverr-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.fiverr-info {
+  flex: 1;
+}
+
+.fiverr-badge {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  padding: 0.5rem 1.2rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 0;
+  margin-bottom: 1.5rem;
+  border: 3px solid #fff;
+  box-shadow: 6px 6px 0px #000;
+}
+
+.fiverr-price-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #000;
+  background: #fff;
+  padding: 0.5rem 1rem;
+  border: 3px solid #000;
+  box-shadow: 5px 5px 0px #000;
+  margin-top: 1rem;
+}
+
+.fiverr-features {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.2rem;
+}
+
+.fiverr-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 1rem;
+  border: 3px solid #000;
+  border-radius: 0;
+  /* Boxy pop-art style */
+  box-shadow: 6px 6px 0px #000;
+  transition: all 0.3s ease;
+}
+
+.fiverr-feature-item:hover {
+  background: #fff;
+  transform: translate(-3px, -3px);
+  box-shadow: 10px 10px 0px #000;
+}
+
+.fiverr-feature-item svg {
+  color: #000;
+}
+
+.fiverr-feature-item span {
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: #000;
+  text-transform: uppercase;
+}
+
+.fiverr-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  background: #000;
+  color: #fff;
+  padding: 1.2rem 2.5rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 4px solid #fff;
+  box-shadow: 10px 10px 0px #000;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.fiverr-btn:hover {
+  transform: translate(-6px, -6px);
+  box-shadow: 16px 16px 0px #000;
+  background: #fff;
+  color: #000;
+  border-color: #000;
+}
+
+@media (max-width: 1024px) {
+  .fiverr-section {
+    padding-bottom: 8rem;
+  }
+
+  .fiverr-card-wrapper {
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  .fiverr-image-container {
+    position: relative;
+    /* Disable sticky on tablet/mobile for flow */
+    top: 0;
+    width: 100%;
+    order: 1;
+  }
+
+  .fiverr-info {
+    width: 100%;
+    order: 2;
+  }
+
+  .fiverr-img-frame {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}

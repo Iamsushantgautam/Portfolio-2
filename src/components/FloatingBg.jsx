@@ -15,11 +15,39 @@ const stickerData = [
 function FloatingBg() {
   return (
     <div className="global-bg-overlay">
-      {/* Persistant Grain Texture */}
+      {/* Persistant Textures */}
       <div className="bg-grain-texture"></div>
-      
-      {/* Giant Global Halftone Overlay (Fixed) */}
       <div className="bg-halftone-global"></div>
+      <div className="bg-grid-overlay"></div>
+      
+      {/* Animated Mesh Blobs */}
+      <motion.div 
+        className="bg-blob blob-1"
+        animate={{
+          scale: [1, 1.2, 1],
+          x: [0, 50, 0],
+          y: [0, -30, 0],
+        }}
+        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div 
+        className="bg-blob blob-2"
+        animate={{
+          scale: [1.2, 1, 1.2],
+          x: [0, -40, 0],
+          y: [0, 60, 0],
+        }}
+        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div 
+        className="bg-blob blob-3"
+        animate={{
+          scale: [1, 1.3, 1],
+          x: [0, 30, 0],
+          y: [0, 40, 0],
+        }}
+        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+      />
 
       {stickerData.map((sticker, i) => {
         const Icon = sticker.icon
@@ -40,7 +68,7 @@ function FloatingBg() {
               scale: [1, 1.1, 1],
             }}
             transition={{
-              duration: 10 + i,
+              duration: 12 + i,
               repeat: Infinity,
               delay: sticker.delay,
               ease: "easeInOut"

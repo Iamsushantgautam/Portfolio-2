@@ -13,6 +13,7 @@ const EducationSection = lazy(() => import('./components/EducationSection'))
 const SkillsSection = lazy(() => import('./components/SkillsSection'))
 const MernProjects = lazy(() => import('./components/MernProjects'))
 const ShopifyProjects = lazy(() => import('./components/ShopifyProjects'))
+const FiverrSection = lazy(() => import('./components/FiverrSection'))
 const UtilityToolsSection = lazy(() => import('./components/UtilityToolsSection'))
 const ContactSection = lazy(() => import('./components/ContactSection'))
 const FooterSection = lazy(() => import('./components/FooterSection'))
@@ -71,6 +72,10 @@ function App() {
 
         <section id="utility-tools">
           <UtilityToolsSection />
+        </section>
+
+        <section id="fiverr">
+          <FiverrSection />
         </section>
 
         <section id="contact">

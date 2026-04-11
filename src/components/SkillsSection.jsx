@@ -12,6 +12,10 @@ import {
   SiMysql,
   SiOpenai,
   SiBootstrap,
+  SiLeetcode,
+  SiPostgresql,
+  SiLinux,
+  SiCplusplus,
 } from 'react-icons/si'
 import jsIcon from '../assets/icons/javascript.svg'
 import reactIcon from '../assets/icons/react.svg'
@@ -41,6 +45,15 @@ const SKILLS = [
     tools: [
       { name: 'MongoDB', icon: <SiMongodb color="#47A248" /> },
       { name: 'SQL', icon: <SiMysql color="#4479A1" /> },
+    ],
+  },
+  {
+    category: 'CORE CONCEPTS',
+    tools: [
+      { name: 'Data Structures', icon: <SiLeetcode color="#FFA116" /> },
+      { name: 'DBMS', icon: <SiPostgresql color="#4169E1" /> },
+      { name: 'Operating Systems', icon: <SiLinux color="#000000" /> },
+      { name: 'OOPs', icon: <SiCplusplus color="#00599C" /> },
     ],
   },
   {

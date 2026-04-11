@@ -4,7 +4,7 @@
 
 .exp-section {
   width: 100%;
-  padding: 6rem 0 2rem 0;
+  padding: 10vh 0 15vh 0;
   /* Padding for start/end spacing */
   background: var(--bg-dark, #e8d94b);
   background-image: radial-gradient(rgba(0, 0, 0, 0.1) 2px, transparent 2px);
@@ -12,6 +12,33 @@
   /* Halftone Dot Pattern */
   position: relative;
   z-index: 5;
+  overflow: visible !important; /* Required for sticky children to work */
+}
+
+/* ── Giant Background Text ── */
+.exp-bg-text-container {
+  position: sticky;
+  top: 50vh;
+  left: 0;
+  width: 100%;
+  height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+.exp-bg-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(10rem, 35vw, 45rem);
+  font-weight: 1000;
+  color: transparent;
+  -webkit-text-stroke: 4px rgba(0, 0, 0, 0.08); /* Dark subtle stroke */
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  transform: translateY(-50%); /* Center the text itself on the sticky line */
 }
 
 .exp-sticky-container {
@@ -83,9 +110,8 @@
   align-items: center;
   /* Vertically center the wrapper */
   position: sticky;
-  top: 0;
-  height: 100vh;
-  /* Takes full viewport height for centering */
+  top: 15vh; /* Pins the image 15vh from top */
+  height: fit-content;
   align-self: flex-start;
   z-index: 10;
 }
@@ -135,10 +161,10 @@
   display: flex;
   flex-direction: column;
   /* Vertical flow */
-  gap: 8rem;
+  gap: 12rem; /* Increased gap for more scroll impact */
   /* Large gaps for scroll impact */
   width: 100%;
-  padding-bottom: 5vh;
+  padding-bottom: 10vh;
   /* Extra space to scroll past the last card */
 }
 
@@ -158,6 +184,23 @@
   box-shadow: 15px 15px 0px #000;
   background-clip: padding-box;
   will-change: transform, opacity;
+  position: relative;
+  overflow: hidden;
+}
+
+.exp-card-number-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 1000;
+  font-size: 15rem;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(0, 0, 0, 0.05);
+  pointer-events: none;
+  z-index: 0;
+  line-height: 1;
 }
 
 /* Playful asymmetric rotations mapped statically now */
@@ -382,14 +425,22 @@
 }
 
 /* ── Responsive ── */
-@media (max-width: 1200px) {
+@media (max-width: 1024px) {
+  .exp-section {
+    padding-bottom: 5rem;
+  }
+  
   .exp-split {
     flex-direction: column;
     gap: 5rem;
   }
 
   .exp-image-col {
-    display: none;
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: auto;
+    display: flex;
   }
 }
 

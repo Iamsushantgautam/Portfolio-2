@@ -133,10 +133,10 @@ function ProjectItem({ project, index }) {
           style={{ scale: imageScale, rotate: imageRotate, y: imageY }}
         >
           <div className="store-img-scroll-container">
-            <motion.img 
-              src={project.img} 
-              alt={project.subtitle} 
-              className="plist-img full-height-img" 
+            <motion.img
+              src={project.img}
+              alt={project.subtitle}
+              className="plist-img full-height-img"
               style={{ objectPosition: isMobile ? imageObjectPos : 'top' }}
               loading="lazy"
             />
